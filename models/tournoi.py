@@ -41,3 +41,7 @@ class Tournoi:
     def get_tournees(self):
         """ add tournament tournees """
         return self.tournees_list
+
+	def get_players(self):
+	    """ add tournament players_list """
+		return self.players_list

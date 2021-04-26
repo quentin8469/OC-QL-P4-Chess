@@ -42,10 +42,14 @@ class Tournoi:
         """ add tournament tournees """
         return self.tournees_list
 
-	def get_players(self):
-	    """ add tournament players_list """
-		return self.players_list
-		
-	def get_timer(self):
-	    """ add tournament timer """
-		return self.timer
+    def get_players(self):
+        """ add tournament players_list """
+        return self.players_list
+        
+    def get_timer(self):
+        """ add tournament timer """
+        return self.timer
+
+    def get_description(self):
+        """ add tournament description """
+        return self.description

@@ -29,3 +29,7 @@ class Tournoi:
     def get_location(self):
         """ add tournament location """
         return self.location
+
+    def get_date(self):
+        """ add tournament date """
+        return self.date

@@ -22,3 +22,7 @@ class Player:
 	def get_lname(self):
 	    """ add last name """
 		return self.lastname
+	
+	def get_fname(self):
+	    """ add first name """
+		return self.firstname

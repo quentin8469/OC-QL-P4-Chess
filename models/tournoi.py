@@ -20,4 +20,8 @@ class Tournoi:
         
     def presentation():
         """ return the tournament infos """
-        return 
+        return
+	
+    def get_name(self):
+        """ add tournament name """
+        return self.name

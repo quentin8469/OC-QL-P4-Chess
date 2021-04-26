@@ -30,3 +30,7 @@ class Player:
     def get_bdate(self):
         """ add birth date """
         return self.birth_date
+	
+	def get_gender(self):
+	    """ add gender """
+		return self.gender

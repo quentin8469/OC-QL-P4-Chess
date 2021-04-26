@@ -21,11 +21,11 @@ class Tournoi:
     def presentation():
         """ return the tournament infos """
         return
-	
+    
     def get_name(self):
         """ add tournament name """
         return self.name
-		
+        
     def get_location(self):
         """ add tournament location """
         return self.location
@@ -33,7 +33,11 @@ class Tournoi:
     def get_date(self):
         """ add tournament date """
         return self.date
-		
-	def get_ronde(self):
-	    """ add tournament rondes """
-		return self.rondes
+        
+    def get_ronde(self):
+        """ add tournament rondes """
+        return self.rondes
+        
+    def get_tournees(self):
+        """ add tournament tournees """
+        return self.tournees_list

@@ -15,3 +15,7 @@ class Match:
     def get_color(self):
         """ give the color white or black to a player"""
         return
+        
+    def get_winner(self):
+        """ give the point to the winner of the match """
+        return

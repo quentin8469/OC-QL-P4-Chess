@@ -33,3 +33,7 @@ class Tournoi:
     def get_date(self):
         """ add tournament date """
         return self.date
+		
+	def get_ronde(self):
+	    """ add tournament rondes """
+		return self.rondes

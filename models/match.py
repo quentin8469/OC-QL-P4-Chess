@@ -19,3 +19,7 @@ class Match:
     def get_winner(self):
         """ give the point to the winner of the match """
         return
+        
+    def get_looser(self):
+        """ don't give point to the loser of the match """
+        return

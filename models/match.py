@@ -27,3 +27,7 @@ class Match:
     def get_draw(self):
         """ in case of draw, give 1/2 point for the two player """
         return
+		
+    def get_result(self):
+        """ give the result of the match """
+        return

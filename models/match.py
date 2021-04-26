@@ -23,3 +23,7 @@ class Match:
     def get_looser(self):
         """ don't give point to the loser of the match """
         return
+        
+    def get_draw(self):
+        """ in case of draw, give 1/2 point for the two player """
+        return

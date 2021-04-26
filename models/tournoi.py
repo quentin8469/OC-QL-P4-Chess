@@ -45,3 +45,7 @@ class Tournoi:
 	def get_players(self):
 	    """ add tournament players_list """
 		return self.players_list
+		
+	def get_timer(self):
+	    """ add tournament timer """
+		return self.timer

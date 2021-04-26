@@ -25,3 +25,7 @@ class Tournoi:
     def get_name(self):
         """ add tournament name """
         return self.name
+		
+    def get_location(self):
+        """ add tournament location """
+        return self.location

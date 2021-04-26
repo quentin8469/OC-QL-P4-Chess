@@ -4,9 +4,13 @@
 
 class Tournoi:
     """
-    doc string
+    All tournament informations
     """
     
     def __init__(self):
-        """ docting """
+        """ initilisation of a tournament"""
         pass
+        
+    def presentation():
+        """ return the tournament infos """
+        return 

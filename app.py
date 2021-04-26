@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-#from controller.controller import Controller
+from controller.controller import Controller
 
 def main():
     """ Start the application """

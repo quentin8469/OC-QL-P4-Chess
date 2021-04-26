@@ -1,10 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-#from controller.controller import controller
+#from controller.controller import Controller
 
 def main():
-    """ docstring"""
-    pass
+    """ Start the application """
+    Controller()
 
 
 if __name__ == "__main__":

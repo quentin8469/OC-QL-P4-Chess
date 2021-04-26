@@ -15,6 +15,10 @@ class Player:
         self.gender = gender
         self.elo = elo
     
-    def presentation():
+    def presentation(self):
         """ return the player infos """
-        return 
+        return
+	
+	def get_lname(self):
+	    """ add last name """
+		return self.lastname

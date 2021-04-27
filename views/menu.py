@@ -11,7 +11,7 @@ class Menu:
         """ docting """
         pass
         
-    def menu_choice(self):
+    def menu_start(self):
         """ print the menu choices """
         print("welcome, please select your action and press Enter")
         print("1.New Tournament")

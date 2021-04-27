@@ -4,7 +4,7 @@
 
 class Menu:
     """
-    doc string
+    In this class we find all the views
     """
     
     def __init__(self):
@@ -29,12 +29,12 @@ class Menu:
         print("Q.Return to start menu")
         return input("Your choice: ")
     
-	def menu_tournament(self):
-	    """ print the Tournament menu """
-		print("welcome, please select your action and press Enter")
+    def menu_tournament(self):
+        """ print the Tournament menu """
+        print("welcome, please select your action and press Enter")
         print("1.New Tournament")
         print("2.Modif Tournament")
-		print("3.load Tournament")
-		print("4.Report")
+        print("3.load Tournament")
+        print("4.Report")
         print("Q.Return to start menu")
-		return input("Your choice: ")
+        return input("Your choice: ")

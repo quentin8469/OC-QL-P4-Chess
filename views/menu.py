@@ -14,11 +14,9 @@ class Menu:
     def menu_start(self):
         """ print the start menu """
         print("welcome, please select your action and press Enter")
-        print("1.New Tournament")
-        print("2.Add player")
+        print("1.Tournament")
+        print("2.player")
         print("3.Report")
-        print("4.load Tournament")
-        print("5.Modif player")
         print("Q.Quit the application")
         return input("Your choice: ")
     
@@ -31,3 +29,12 @@ class Menu:
         print("Q.Return to start menu")
         return input("Your choice: ")
     
+	def menu_tournament(self):
+	    """ print the Tournament menu """
+		print("welcome, please select your action and press Enter")
+        print("1.New Tournament")
+        print("2.Modif Tournament")
+		print("3.load Tournament")
+		print("4.Report")
+        print("Q.Return to start menu")
+		return input("Your choice: ")

@@ -1,6 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+# from ..views import menu
+# from ..models import joueur, match, ronde, tournoi
+
 
 class Controller:
     """

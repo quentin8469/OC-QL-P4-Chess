@@ -39,6 +39,21 @@ class Menu:
         print("Q.Return to start menu")
         return input("Your choice: ")
     
+    def menu_report(self):
+        """ print the report menu """
+        print("welcome, please select your action and press Enter")
+        print("list of all actors:")
+        print("    1. Alphabetique order")
+        print("    2. Classement order")
+        print("List of all player for one tournament")
+        print("    3. Alphabetique order")
+        print("    4. Classement order")
+        print("5.List of all tournament")
+        print("6.List of all rondes in a tournament")
+        print("7.List of all match in a tournament")
+        print("Q.Return to start menu")
+        return input("Your choice: ")
+    
     def new_player_number(self):
         """ give number of player you want add"""
         return input("Number of players you want add: ")

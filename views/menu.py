@@ -42,19 +42,19 @@ class Menu:
     def new_player_lname(self):
         """ get the player last name """
         return input("Last Name: ")
-	
-	def new_player_fname(self):
+    
+    def new_player_fname(self):
         """ get the player firt name """
         return input("First Name: ")
-	
-	def new_player_bdate(self):
+    
+    def new_player_bdate(self):
         """ get the player Birth date """
         return input("Birth date: ")
-		
-	def new_player_gender(self):
+        
+    def new_player_gender(self):
         """ get the player gender """
         return input("Gender: ")
-	
-	def new_player_elo(self):
+    
+    def new_player_elo(self):
         """ get the player Elo """
         return input("Elo: ")

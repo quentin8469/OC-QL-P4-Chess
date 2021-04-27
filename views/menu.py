@@ -38,3 +38,7 @@ class Menu:
         print("4.Report")
         print("Q.Return to start menu")
         return input("Your choice: ")
+    
+    def new_player(self):
+        """ get the player name """
+        return input("Name: ")

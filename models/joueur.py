@@ -30,18 +30,19 @@ class Player:
     def get_bdate(self):
         """ add birth date """
         return self.birth_date
-	
-	def get_gender(self):
-	    """ add gender """
-		return self.gender
-	
-	def serialized_player(self):
-	    """" serialization for save in TinyDB """
-		serialized_player = {
+    
+    def get_gender(self):
+        """ add gender """
+        return self.gender
+    
+    def serialized_player(self):
+        """" serialization for save in TinyDB """
+        serialized_player = {
             'Last name': self.lastname, 
             'First name': self.firstname,
-			'Birth date': self.birth_date,
-			'Gender': self.gender,
+            'Birth date': self.birth_date,
+            'Gender': self.gender,
+            'Elo' : self.elo,
         }
-		return serialized_player
-		
+        return serialized_player
+        

@@ -62,3 +62,37 @@ class Menu:
     def new_player_elo(self):
         """ get the player Elo """
         return input("Elo: ")
+        
+    def new_tournament_name(self):
+        """ get the tournament name"""
+        return input("Tournament name: ")
+    
+    def new_tournament_location(self):
+        """ get the tournament location"""
+        return input("Tournament location: ")
+    
+    def new_tournament_date(self):
+        """ get the tournament date"""
+        return input("Tournament date: ")
+    
+    def new_tournament_rondes(self):
+        """ get the tournament rondes"""
+        return input("Tournament rondes: ")
+    
+    def new_tournament_tournees(self):
+        """ get the tournament tournees"""
+        return input("Tournament tournees: ")
+    
+    def new_tournament_player(self):
+        """ get the tournament player"""
+        return input("Tournament player: ")
+    
+    def new_tournament_timer(self):
+        """ get the tournament timer"""
+        return input("Tournament timer: ")
+    
+    def new_tournament_description(self):
+        """ get the tournament location"""
+        return input("Tournament description: ")
+    
+    

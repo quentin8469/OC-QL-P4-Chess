@@ -39,6 +39,10 @@ class Menu:
         print("Q.Return to start menu")
         return input("Your choice: ")
     
-    def new_player(self):
+    def new_player_lname(self):
         """ get the player name """
-        return input("Name: ")
+        return input("Last Name: ")
+	
+	def new_player_fname(self):
+        """ get the player name """
+        return input("First Name: ")

@@ -39,6 +39,10 @@ class Menu:
         print("Q.Return to start menu")
         return input("Your choice: ")
     
+    def new_player_number(self):
+        """ give number of player you want add"""
+        return input("Number of players you want add: ")
+    
     def new_player_lname(self):
         """ get the player last name """
         return input("Last Name: ")

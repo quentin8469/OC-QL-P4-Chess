@@ -42,15 +42,15 @@ class Menu:
     def menu_report(self):
         """ print the report menu """
         print("welcome, please select your action and press Enter")
-        print("list of all actors:")
+        print("List of all actors:")
         print("    1. Alphabetique order")
         print("    2. Classement order")
-        print("List of all player for one tournament")
+        print("List of all player for one tournament:")
         print("    3. Alphabetique order")
         print("    4. Classement order")
-        print("5.List of all tournament")
+        print("5.List of all tournaments")
         print("6.List of all rondes in a tournament")
-        print("7.List of all match in a tournament")
+        print("7.List of all matchs in a tournament")
         print("Q.Return to start menu")
         return input("Your choice: ")
     

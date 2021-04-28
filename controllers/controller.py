@@ -17,4 +17,23 @@ class Controller:
     def start(self):
         """ start the view menu_start"""
         start = Menu()
-        return start.menu_start()
+        start.menu_start()
+        test = input("Your choice: ")
+        if test == "1":
+           start.menu_tournament()
+        if test == "2":
+           start.menu_player()
+        if test == "3":
+           start.menu_report()
+        if test == "M":
+           start.menu_start()
+        
+    '''    
+    def choice_menu(self):
+       """ doc string"""
+       choice = start.menu_start()
+       start.menu_start()
+       test = input("Your choice: ")
+       if test == 1:
+           start.menu_player()
+    '''

@@ -1,9 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from views.menu import Menu
-# from ..models import joueur, match, ronde, tournoi
-
 
 class Controller:
     """
@@ -31,8 +28,7 @@ class Controller:
     def report_menu(self):
        """ start the player menu"""
        self.menu.menu_report()
-    
-	'''    
+    	   
     def choice_menu(self):
        """ doc string"""
        choice = start.menu_start()
@@ -40,4 +36,4 @@ class Controller:
        test = input("Your choice: ")
        if test == 1:
            start.menu_player()
-    '''
+    

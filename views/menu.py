@@ -18,7 +18,7 @@ class Menu:
         print("2.player")
         print("3.Report")
         print("Q.Quit the application")
-        #return input("Your choice: ")
+        
     
     def menu_player(self):
         """ print the Player menu """
@@ -27,7 +27,7 @@ class Menu:
         print("2.Modif player")
         print("3.Report")
         print("M.Return to start menu")
-        #return input("Your choice: ")
+        
     
     def menu_tournament(self):
         """ print the Tournament menu """
@@ -37,7 +37,7 @@ class Menu:
         print("3.load Tournament")
         print("4.Report")
         print("M.Return to start menu")
-        #return input("Your choice: ")
+        
     
     def menu_report(self):
         """ print the report menu """
@@ -52,7 +52,7 @@ class Menu:
         print("6.List of all rondes in a tournament")
         print("7.List of all matchs in a tournament")
         print("M.Return to start menu")
-        #return input("Your choice: ")
+        
     
     def new_player_number(self):
         """ give number of player you want add"""

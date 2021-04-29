@@ -13,34 +13,41 @@ class Menu:
         
     def menu_start(self):
         """ print the start menu """
+        print("--------- Start Menu ---------")
         print("welcome, please select your action and press Enter")
         print("1.Tournament")
         print("2.player")
         print("3.Report")
         print("Q.Quit the application")
+        print("------------------------------")
         
     
     def menu_player(self):
         """ print the Player menu """
+        print("--------- Player Menu ---------")
         print("welcome, please select your action and press Enter")
         print("1.New player")
         print("2.Modif player")
         print("3.Report")
         print("M.Return to start menu")
+        print("-------------------------------")
         
     
     def menu_tournament(self):
         """ print the Tournament menu """
+        print("--------- Tournament Menu ---------")
         print("welcome, please select your action and press Enter")
         print("1.New Tournament")
         print("2.Modif Tournament")
         print("3.load Tournament")
         print("4.Report")
         print("M.Return to start menu")
+        print("-----------------------------------")
         
     
     def menu_report(self):
         """ print the report menu """
+        print("--------- Report Menu ---------")
         print("welcome, please select your action and press Enter")
         print("List of all actors:")
         print("    1. Alphabetique order")
@@ -52,6 +59,7 @@ class Menu:
         print("6.List of all rondes in a tournament")
         print("7.List of all matchs in a tournament")
         print("M.Return to start menu")
+        print("-------------------------------")
         
     
     def new_player_number(self):

@@ -4,11 +4,11 @@
 
 class Controller:
     """
-    doc string
+    This class controlle the menu views
     """
     
     def __init__(self, menu):
-        """ docting """
+        """ constructor initialisation """
         self.menu = menu
         self.start_menu()
     
@@ -25,19 +25,19 @@ class Controller:
        self.choice_menu_player(input_choice)
 
     def tournament_menu(self):
-       """ start the player menu"""
+       """ start the tournament menu"""
        self.menu.menu_tournament()
        input_choice = input("Your choice: ")
        self.choice_menu_tournament(input_choice)
 
     def report_menu(self):
-       """ start the player menu"""
+       """ start the report menu"""
        self.menu.menu_report()
        input_choice = input("Your choice: ")
        self.choice_menu_report(input_choice)
 
     def choice_menu_start(self, input_choice):
-       """ navigate in the view menu_start"""
+       """ navigate in the menu_start"""
        if input_choice == "1":
            self.tournament_menu()          
        if input_choice == "2":
@@ -48,7 +48,7 @@ class Controller:
            pass
     
     def choice_menu_player(self, input_choice):
-       """ navigate in the view menu_player"""
+       """ navigate in the menu_player"""
        if input_choice == "1":
            pass         
        if input_choice == "2":
@@ -59,7 +59,7 @@ class Controller:
            self.start_menu()
     
     def choice_menu_tournament(self, input_choice):
-       """ navigate in the view menu_tournament"""
+       """ navigate in the menu_tournament"""
        if input_choice == "1":
            pass         
        if input_choice == "2":
@@ -72,7 +72,7 @@ class Controller:
            self.start_menu()
            
     def choice_menu_report(self, input_choice):
-       """ navigate in the view menu_report"""
+       """ navigate in the menu_report"""
        if input_choice == "1":
            pass         
        if input_choice == "2":

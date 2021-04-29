@@ -27,11 +27,15 @@ class Controller:
     def tournament_menu(self):
        """ start the player menu"""
        self.menu.menu_tournament()
+       input_choice = input("Your choice: ")
+       self.choice_menu_tournament(input_choice)
 
     def report_menu(self):
        """ start the player menu"""
        self.menu.menu_report()
-           
+       input_choice = input("Your choice: ")
+       self.choice_menu_report(input_choice)
+
     def choice_menu_start(self, input_choice):
        """ navigate in the view menu_start"""
        if input_choice == "1":
@@ -44,7 +48,7 @@ class Controller:
            pass
     
     def choice_menu_player(self, input_choice):
-       """ navigate in the view menu_start"""
+       """ navigate in the view menu_player"""
        if input_choice == "1":
            pass         
        if input_choice == "2":
@@ -53,3 +57,17 @@ class Controller:
            pass
        if input_choice == "M":
            self.start_menu()
+    
+    def choice_menu_tournament(self, input_choice):
+       """ navigate in the view menu_tournament"""
+       if input_choice == "1":
+           pass         
+       if input_choice == "2":
+           pass
+       if input_choice == "3":
+           pass
+       if input_choice == "4":
+           pass
+       if input_choice == "M":
+           self.start_menu()
+           

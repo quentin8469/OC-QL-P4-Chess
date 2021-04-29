@@ -71,3 +71,21 @@ class Controller:
        if input_choice == "M":
            self.start_menu()
            
+    def choice_menu_report(self, input_choice):
+       """ navigate in the view menu_report"""
+       if input_choice == "1":
+           pass         
+       if input_choice == "2":
+           pass
+       if input_choice == "3":
+           pass
+       if input_choice == "4":
+           pass
+       if input_choice == "5":
+           pass
+       if input_choice == "6":
+           pass
+       if input_choice == "7":
+           pass
+       if input_choice == "M":
+           self.start_menu()

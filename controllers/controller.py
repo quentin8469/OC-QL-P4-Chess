@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from models.joueur import Player
+from models.tournoi import Tournament
 
 class Controller:
     """
@@ -67,6 +68,8 @@ class Controller:
     def choice_menu_tournament(self, input_choice):
        """ navigate in the menu_tournament"""
        if input_choice == "1":
+           # New tournament
+           self.new_tournament()
            pass         
        if input_choice == "2":
            pass
@@ -112,4 +115,14 @@ class Controller:
     def report():
         """ Create en report"""
         pass
+    
+    def new_tournament(self):
+        """ Create a new player"""
+        name = self.menu.new_tournament_name()
+        location = self.menu.new_tournament_location()
+        date = self.menu.new_tournament_date()
+        rondes = self.menu.new_tournament_rondes()
+        tournees = self.menu.new_tournament_tournees()
+        description = self.menu.new_tournament_description()
+        new_tournament = Tournament(name, location, date, rondes, tournees, description)
     

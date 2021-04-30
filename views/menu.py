@@ -10,7 +10,7 @@ class Menu:
     def __init__(self):
         """ docting """
         pass
-        
+    # menu creation    
     def menu_start(self):
         """ print the start menu """
         print("--------- Start Menu ---------")
@@ -61,7 +61,7 @@ class Menu:
         print("M.Return to start menu")
         print("-------------------------------")
         
-    
+    # Player creation actions
     def new_player_number(self):
         """ give number of player you want add"""
         return input("Number of players you want add: ")
@@ -86,6 +86,7 @@ class Menu:
         """ get the player Elo """
         return input("Elo: ")
         
+    # Tournament creation actions    
     def new_tournament_name(self):
         """ get the tournament name"""
         return input("Tournament name: ")

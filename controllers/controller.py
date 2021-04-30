@@ -4,7 +4,7 @@
 
 class Controller:
     """
-    This class controlle the menu views
+    This class control the menu views
     """
     
     def __init__(self, menu):
@@ -50,12 +50,17 @@ class Controller:
     def choice_menu_player(self, input_choice):
        """ navigate in the menu_player"""
        if input_choice == "1":
+           # New player
+           #self.new_player()
            pass         
        if input_choice == "2":
+           # Modif player
            pass
        if input_choice == "3":
+           # Report
            pass
        if input_choice == "M":
+           # Return start menu
            self.start_menu()
     
     def choice_menu_tournament(self, input_choice):
@@ -89,3 +94,12 @@ class Controller:
            pass
        if input_choice == "M":
            self.start_menu()
+    
+    def new_player(self):
+        """ Action for creat a new player"""
+        pass
+    
+    def modif_player(self):
+        """ modif player data"""
+        pass
+    

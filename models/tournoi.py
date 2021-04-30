@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
-class Tournoi:
+class Tournament:
     """
     All tournament informations
     """

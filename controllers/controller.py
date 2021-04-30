@@ -104,8 +104,6 @@ class Controller:
         gender = self.menu.new_player_gender()
         elo = self.menu.new_player_elo()
         new_player = Player(lastname, firstname, birth_date, gender,elo)
-        
-        
     
     def modif_player(self):
         """ modif player data"""

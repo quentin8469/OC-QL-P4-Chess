@@ -55,9 +55,11 @@ class Controller:
            pass         
        if input_choice == "2":
            # Modif player
+           #self.modif_player()
            pass
        if input_choice == "3":
            # Report
+           #self.report()
            pass
        if input_choice == "M":
            # Return start menu
@@ -96,10 +98,14 @@ class Controller:
            self.start_menu()
     
     def new_player(self):
-        """ Action for creat a new player"""
+        """ Create a new player"""
         pass
     
     def modif_player(self):
         """ modif player data"""
+        pass
+    
+    def report()
+        """ Create en report"""
         pass
     

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
+from models.joueur import Player
 
 class Controller:
     """
@@ -51,8 +51,7 @@ class Controller:
        """ navigate in the menu_player"""
        if input_choice == "1":
            # New player
-           #self.new_player()
-           pass         
+           self.new_player()          
        if input_choice == "2":
            # Modif player
            #self.modif_player()
@@ -104,14 +103,15 @@ class Controller:
         birth_date = self.menu.new_player_bdate()
         gender = self.menu.new_player_gender()
         elo = self.menu.new_player_elo()
+        new_player = Player(lastname, firstname, birth_date, gender,elo)
         
-        pass
+        
     
     def modif_player(self):
         """ modif player data"""
         pass
     
-    def report()
+    def report():
         """ Create en report"""
         pass
     

@@ -99,6 +99,12 @@ class Controller:
     
     def new_player(self):
         """ Create a new player"""
+        lastname = self.menu.new_player_lname()
+        firstname = self.menu.new_player_fname()
+        birth_date = self.menu.new_player_bdate()
+        gender = self.menu.new_player_gender()
+        elo = self.menu.new_player_elo()
+        
         pass
     
     def modif_player(self):

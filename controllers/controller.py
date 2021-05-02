@@ -16,7 +16,7 @@ class Controller:
     def start_menu(self):
         """ start the view menu_start"""
         self.menu.menu_start()       
-        input_choice = input("Your choice: ")
+        input_choice = input()
         self.choice_menu_start(input_choice)
     
     def player_menu(self):

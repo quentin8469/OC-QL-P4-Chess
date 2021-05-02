@@ -69,8 +69,7 @@ class Controller:
        """ navigate in the menu_tournament"""
        if input_choice == "1":
            # New tournament
-           self.new_tournament()
-           pass         
+           self.new_tournament()         
        if input_choice == "2":
            pass
        if input_choice == "3":
@@ -101,11 +100,16 @@ class Controller:
     
     def new_player(self):
         """ Create a new player"""
-        lastname = self.menu.new_player_lname()
-        firstname = self.menu.new_player_fname()
-        birth_date = self.menu.new_player_bdate()
-        gender = self.menu.new_player_gender()
-        elo = self.menu.new_player_elo()
+        self.menu.new_player_lname()
+        lastname = input()
+        self.menu.new_player_fname()
+        firstname = input()
+        self.menu.new_player_bdate()
+        birth_date = input()
+        self.menu.new_player_gender()
+        gender = input()
+        self.menu.new_player_elo()
+        elo = input()
         new_player = Player(lastname, firstname, birth_date, gender,elo)
     
     def modif_player(self):
@@ -124,5 +128,6 @@ class Controller:
         rondes = self.menu.new_tournament_rondes()
         tournees = self.menu.new_tournament_tournees()
         description = self.menu.new_tournament_description()
-        new_tournament = Tournament(name, location, date, rondes, tournees, description)
+        new_tournament = Tournament(name, location, date, rondes, tournees, 
+                                                                    description)
     

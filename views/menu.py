@@ -62,29 +62,30 @@ class Menu:
         print("-------------------------------")
         
     # Player creation actions
+    # virer input replacer par print
     def new_player_number(self):
         """ give number of player you want add"""
-        return input("Number of players you want add: ")
+        print("Number of players you want add: ")
     
     def new_player_lname(self):
         """ get the player last name """
-        return input("Last Name: ")
+        print("Last Name: ")
     
     def new_player_fname(self):
         """ get the player firt name """
-        return input("First Name: ")
+        print("First Name: ")
     
     def new_player_bdate(self):
         """ get the player Birth date """
-        return input("Birth date: ")
+        print("Birth date: ")
         
     def new_player_gender(self):
         """ get the player gender """
-        return input("Gender: ")
+        print("Gender: ")
     
     def new_player_elo(self):
         """ get the player Elo """
-        return input("Elo: ")
+        print("Elo: ")
         
     # Tournament creation actions    
     def new_tournament_name(self):

@@ -122,12 +122,18 @@ class Controller:
     
     def new_tournament(self):
         """ Create a new player"""
-        name = self.menu.new_tournament_name()
-        location = self.menu.new_tournament_location()
-        date = self.menu.new_tournament_date()
-        rondes = self.menu.new_tournament_rondes()
-        tournees = self.menu.new_tournament_tournees()
-        description = self.menu.new_tournament_description()
+        self.menu.new_tournament_name()
+        name = input()
+        self.menu.new_tournament_location()
+        location = input()
+        self.menu.new_tournament_date()
+        date = input()
+        self.menu.new_tournament_rondes()
+        rondes = input()
+        self.menu.new_tournament_tournees()
+        tournees = input()
+        self.menu.new_tournament_description()
+        description = input()
         new_tournament = Tournament(name, location, date, rondes, tournees, 
                                                                     description)
     

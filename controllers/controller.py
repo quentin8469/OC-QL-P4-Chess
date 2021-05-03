@@ -52,26 +52,13 @@ class Controller:
         """ start the report menu"""
         self.menu.menu_report()
         input_choice = input()
-        self.choice_menu_report(input_choice)
-
-    def choice_menu_report(self, input_choice):
-        """ navigate in the menu_report"""
-        if input_choice == "1":
-            pass
-        if input_choice == "2":
-            pass
-        if input_choice == "3":
-            pass
-        if input_choice == "4":
-            pass
-        if input_choice == "5":
-            pass
-        if input_choice == "6":
-            pass
-        if input_choice == "7":
-            pass
-        if input_choice == "M":
-            self.start_menu()
+        input_check_list = ["1", "2", "3", "4", "5", "6", "7", "M"]
+        while input_choice not in input_check_list:
+            input_choice = input()
+        menu = input_check_list.index(input_choice)
+        menu_list = [self.start_menu, self.start_menu, self.start_menu, 
+             self.start_menu, self.start_menu, self.start_menu, self.start_menu]
+        menu_list[menu]()
 
     def new_player(self):
         """ Create a new player"""

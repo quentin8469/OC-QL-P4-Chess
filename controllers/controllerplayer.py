@@ -11,19 +11,20 @@ class PlayerController:
     def __init__(self, menu):
         """ constructor controller player"""
         self.menu = menu
-        self.playerdb = TinyDB('players.json')
-        self.player_table = self.playerdb.table('players')
+        self.playerdb = TinyDB('players1.json')
+        self.player_table = self.playerdb.table('players1')
         self.player_menu()
     
     def player_menu(self):
         """ start the player menu"""
         self.menu.menu_player()
         input_choice = input()
-        input_check_list = ["1", "2", "3", "M"]
+        input_check_list = ["1", "2", "3", "4"]
         while input_choice not in input_check_list:
             input_choice = input()
         menu = input_check_list.index(input_choice)
-        menu_list = [self.new_player, self.modif_player, self.report]
+        menu_list = [self.new_player, self.edit_player, self.players_list, 
+                                                           self.menu.menu_start]
         menu_list[menu]()
     
     '''
@@ -59,13 +60,14 @@ class PlayerController:
         self.player_table.insert(new_player.serialized_player())
         self.player_menu()
 
-    def modif_player(self):
+    def edit_player(self):
         """ modif player data"""
-        pass
+        self.playerdb.purge()
 
-    def report(self):
+    def players_list(self):
         """ Create en report"""
         
         results = self.player_table.all()
         for player in results:
-            self.menu.player_list(player)  
+            self.menu.player_list(player)
+        self.player_menu()        

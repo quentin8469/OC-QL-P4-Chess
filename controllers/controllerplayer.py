@@ -42,16 +42,6 @@ class PlayerController:
             if (input >=0 and input <4):
                 input_dict[input]()
     '''    
-    def choice_menu_start(self, input_choice):
-        """ navigate in the menu_start"""
-        input = input_choice
-        input_dict = {
-            "1": self.tournament_menu(),
-            "2": self.player_menu(),
-            "3": self.report_menu(),
-            "Q": "Au revoir",
-        }
-        
 
     def new_player(self):
         """ Create a new player"""

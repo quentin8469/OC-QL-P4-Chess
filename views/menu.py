@@ -28,9 +28,9 @@ class Menu:
         print("--------- Player Menu ---------")
         print("welcome, please select your action and press Enter")
         print("1.New player")
-        print("2.Modif player")
-        print("3.Report")
-        print("M.Return to start menu")
+        print("2.Edit player")
+        print("3.Player list")
+        print("4.Return to start menu")
         print("-------------------------------")
         
     
@@ -121,4 +121,14 @@ class Menu:
         """ get the tournament location"""
         print("Tournament description: ")
     
-    
+    # report action
+    def player_list(self, player):
+        """ give the liste of the players"""
+        print("---------------------------------")
+        print("doc_id:", player.doc_id)
+        print("Last name:", player["Last name"])
+        print("First name:", player["First name"])
+        print("Birth date:", player["Birth date"])
+        print("Gender:", player["Gender"])
+        print("Elo:", player["Elo"])
+        print("---------------------------------")

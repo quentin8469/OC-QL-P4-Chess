@@ -13,88 +13,46 @@ class Controller:
         """ constructor initialisation """
         self.menu = menu
         self.start_menu()
-
+        
     def start_menu(self):
         """ start the view menu_start"""
         self.menu.menu_start()
         input_choice = input()
-        self.choice_menu_start(input_choice)
+        input_check_list = ["1", "2", "3", "Q"]
+        while input_choice not in input_check_list:
+            input_choice = input()
+        menu = input_check_list.index(input_choice)
+        menu_list = [self.tournament_menu, self.player_menu, self.report_menu, "Kiss"]
+        menu_list[menu]()
 
     def player_menu(self):
         """ start the player menu"""
         self.menu.menu_player()
         input_choice = input()
-        self.choice_menu_player(input_choice)
+        input_check_list = ["1", "2", "3", "M"]
+        while input_choice not in input_check_list:
+            input_choice = input()
+        menu = input_check_list.index(input_choice)
+        menu_list = [self.new_player, self.modif_player, self.report, self.start_menu]
+        menu_list[menu]()
 
     def tournament_menu(self):
         """ start the tournament menu"""
         self.menu.menu_tournament()
         input_choice = input()
-        self.choice_menu_tournament(input_choice)
+        input_check_list = ["1", "2", "3", "4", "M"]
+        while input_choice not in input_check_list:
+            input_choice = input()
+        menu = input_check_list.index(input_choice)
+        menu_list = [self.new_tournament, self.start_menu, self.start_menu, 
+                                               self.start_menu, self.start_menu]
+        menu_list[menu]()
 
     def report_menu(self):
         """ start the report menu"""
         self.menu.menu_report()
         input_choice = input()
         self.choice_menu_report(input_choice)
-
-    def choice_menu_start(self, input_choice):
-        """ navigate in the menu_start"""
-        '''
-        #input_choice = input_choice
-        input_dict = {
-            "1": self.tournament_menu(),
-            "2": self.player_menu(),
-            "3": self.report_menu(),
-            "Q": "Au revoir",
-        }
-        while choice not in input_dict.keys():
-            choice = 
-            input_dict[choice]
-        '''
-        
-        if input_choice == "1":
-            self.tournament_menu()          
-        if input_choice == "2":
-            self.player_menu()
-        if input_choice == "3":
-            self.report_menu()
-        if input_choice == "Q":
-            pass
-        #input_dict = {"1" : self.tournament()}
-        #test = input_dict[input_choice]
-        
-
-    def choice_menu_player(self, input_choice):
-        """ navigate in the menu_player"""
-        if input_choice == "1":
-            # New player
-            self.new_player()
-        if input_choice == "2":
-            # Modif player
-            # self.modif_player()
-            pass
-        if input_choice == "3":
-            # Report
-            # self.report()
-            pass
-        if input_choice == "M":
-            # Return start menu
-            self.start_menu()
-
-    def choice_menu_tournament(self, input_choice):
-        """ navigate in the menu_tournament"""
-        if input_choice == "1":
-            # New tournament
-            self.new_tournament()
-        if input_choice == "2":
-            pass
-        if input_choice == "3":
-            pass
-        if input_choice == "4":
-            pass
-        if input_choice == "M":
-            self.start_menu()
 
     def choice_menu_report(self, input_choice):
         """ navigate in the menu_report"""

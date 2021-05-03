@@ -63,6 +63,9 @@ class PlayerController:
         """ modif player data"""
         pass
 
-    def report():
+    def report(self):
         """ Create en report"""
-        pass
+        
+        results = self.player_table.all()
+        for player in results:
+            self.menu.player_list(player)  

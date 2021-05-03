@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from models.joueur import Player
 from models.tournoi import Tournament
+from tinydb import TinyDB
 
 
 class Controller:
@@ -12,6 +13,10 @@ class Controller:
     def __init__(self, menu):
         """ constructor initialisation """
         self.menu = menu
+        self.playerdb = TinyDB('players.json')
+        self.player_table = self.playerdb.table('players')
+        self.tournamentdb = TinyDB('tournament.json')
+        self.tournament_table = self.tournamentdb.table('tournament')
         self.start_menu()
         
     def start_menu(self):
@@ -73,6 +78,8 @@ class Controller:
         self.menu.new_player_elo()
         elo = input()
         new_player = Player(lastname, firstname, birth_date, gender, elo)
+        self.player_table.insert(new_player.serialized_player())
+        self.menu.menu_start()
 
     def modif_player(self):
         """ modif player data"""

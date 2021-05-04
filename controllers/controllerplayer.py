@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from models.joueur import Player
-from tinydb import TinyDB
+from tinydb import TinyDB, Query, where
 
 class PlayerController:
     """
@@ -19,12 +19,12 @@ class PlayerController:
         """ start the player menu"""
         self.menu.menu_player()
         input_choice = input()
-        input_check_list = ["1", "2", "3", "4"]
+        input_check_list = ["1", "2", "3", "4", "5", "6"]
         while input_choice not in input_check_list:
             input_choice = input()
         menu = input_check_list.index(input_choice)
         menu_list = [self.new_player, self.edit_player, self.players_list, 
-                                                           self.menu.menu_start]
+                   self.update_player, self.search_player, self.menu.menu_start]
         menu_list[menu]()
     
     '''
@@ -38,7 +38,7 @@ class PlayerController:
             "4": "Au revoir",
         }
         input = 0
-        while (input != 4):
+        while input != 4):
             input =int(input())
             if (input >=0 and input <4):
                 input_dict[input]()
@@ -62,12 +62,24 @@ class PlayerController:
 
     def edit_player(self):
         """ modif player data"""
-        self.playerdb.purge()
+        pass
 
     def players_list(self):
         """ Create en report"""
         
-        results = self.player_table.all()
-        for player in results:
+        players = self.player_table.all()
+        for player in players:
             self.menu.player_list(player)
-        self.player_menu()        
+        self.player_menu()
+
+    def player_alpha_order(self):
+        """ List of the player in alphabetique order"""
+        pass
+        
+    def player__classement_order(self):
+        """ List of the player in classement order"""
+        pass
+        
+    def update__player(self):
+        """ serch player"""
+        pass        

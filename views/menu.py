@@ -30,7 +30,9 @@ class Menu:
         print("1.New player")
         print("2.Edit player")
         print("3.Player list")
-        print("4.Return to start menu")
+        print("4.Player search")
+        print("5.Player update")
+        print("6.Return to start menu")
         print("-------------------------------")
         
     
@@ -63,7 +65,7 @@ class Menu:
         print("-------------------------------")
         
     # Player creation actions
-    # virer input replacer par print
+
     def new_player_number(self):
         """ give number of player you want add"""
         print("Number of players you want add: ")
@@ -87,6 +89,20 @@ class Menu:
     def new_player_elo(self):
         """ get the player Elo """
         print("Elo: ")
+    
+    def player_list(self, player):
+        """ give the liste of the players"""
+        
+        print("---------------------------------")
+        print("doc_id:", player.doc_id)
+        print("Last name:", player["Last name"])
+        print("First name:", player["First name"])
+        print("Birth date:", player["Birth date"])
+        print("Gender:", player["Gender"])
+        print("Elo:", player["Elo"])
+        print("---------------------------------")
+    
+  
         
     # Tournament creation actions    
     def new_tournament_name(self):
@@ -122,13 +138,4 @@ class Menu:
         print("Tournament description: ")
     
     # report action
-    def player_list(self, player):
-        """ give the liste of the players"""
-        print("---------------------------------")
-        print("doc_id:", player.doc_id)
-        print("Last name:", player["Last name"])
-        print("First name:", player["First name"])
-        print("Birth date:", player["Birth date"])
-        print("Gender:", player["Gender"])
-        print("Elo:", player["Elo"])
-        print("---------------------------------")
+    

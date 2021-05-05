@@ -101,7 +101,14 @@ class Menu:
         print("Gender:", player["Gender"])
         print("Elo:", player["Elo"])
         print("---------------------------------")
-    
+        
+    def edit_player(self):
+        """ menu to chioce the action editting player"""
+        print("---------------------------------")
+        print("1.Edit elo player")
+        print("2.del player")
+        print("3.Return to start menu")
+		print("---------------------------------")
   
         
     # Tournament creation actions    

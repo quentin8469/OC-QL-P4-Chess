@@ -41,10 +41,11 @@ class Menu:
         print("--------- Tournament Menu ---------")
         print("welcome, please select your action and press Enter")
         print("1.New Tournament")
-        print("2.Modif Tournament")
-        print("3.load Tournament")
-        print("4.Report")
-        print("M.Return to start menu")
+        print("2.Edit Tournament")
+        print("3.List of Tournament")
+        print("4.load Tournament")
+        print("5.Report")
+        print("6.Return to start menu")
         print("-----------------------------------")
         
     
@@ -108,7 +109,7 @@ class Menu:
         print("1.Edit elo player")
         print("2.del player")
         print("3.Return to start menu")
-		print("---------------------------------")
+        print("---------------------------------")
   
         
     # Tournament creation actions    
@@ -144,5 +145,17 @@ class Menu:
         """ get the tournament location"""
         print("Tournament description: ")
     
+    def tournament_list(self, tournament):
+        """ give the liste of the tournament"""
+        
+        print("--------Liste des tournoi--------")
+        print("doc_id:", tournament.doc_id)
+        print("Tournament name:", tournament["Tournament name"])
+        print("Tournament location:", tournament["Tournament location"])
+        print("Tournament date:", tournament["Tournament date"])
+        print("Tournament rondes:", tournament["Tournament rondes"])
+        print("Tournament tournees:", tournament["Tournament tournees"])
+        print("Tournament description:", tournament["Tournament description"])
+        print("---------------------------------")
     # report action
     

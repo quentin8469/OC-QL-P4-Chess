@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from models.joueur import Player
-from tinydb import TinyDB, Query, where
+from tinydb import TinyDB, Query
 
 class PlayerController:
     """
@@ -12,6 +12,7 @@ class PlayerController:
         """ constructor controller player"""
         self.menu = menu
         self.playerdb = TinyDB('players1.json')
+        self.playerquery = Query()
         self.player_table = self.playerdb.table('players1')
         self.player_menu()
     
@@ -62,7 +63,7 @@ class PlayerController:
 
     def edit_player(self):
         """ modif player data"""
-        pass
+        self.menu.edit_player()
 
     def players_list(self):
         """ Create en report"""
@@ -74,12 +75,18 @@ class PlayerController:
 
     def player_alpha_order(self):
         """ List of the player in alphabetique order"""
+        sorted()
         pass
         
-    def player__classement_order(self):
+    def player_classement_order(self):
         """ List of the player in classement order"""
+        sorted()
         pass
         
-    def update__player(self):
+    def update_player(self):
         """ serch player"""
         pass        
+    
+    def search_player(self):
+        """ serch player"""
+        pass   

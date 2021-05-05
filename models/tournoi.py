@@ -22,6 +22,8 @@ class Tournament:
             'Tournament name': self.name, 
             'Tournament location': self.location,
             'Tournament date': self.date,
+            'Tournament rondes': self.rondes,
+            'Tournament tournees': self.tournees_list,
             'Tournament description' : self.description,
         }
         return serialized_tournament

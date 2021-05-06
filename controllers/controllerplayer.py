@@ -3,19 +3,20 @@
 from models.joueur import Player
 from tinydb import TinyDB, Query
 
+
 class PlayerController:
     """
     All player controlles
     """
-    
+
     def __init__(self, menu):
         """ constructor controller player"""
         self.menu = menu
-        self.playerdb = TinyDB('players1.json')
+        self.playerdb = TinyDB("players2.json")
         self.playerquery = Query()
-        self.player_table = self.playerdb.table('players1')
+        self.player_table = self.playerdb.table("players2")
         self.player_menu()
-    
+
     def player_menu(self):
         """ start the player menu"""
         self.menu.menu_player()
@@ -24,14 +25,21 @@ class PlayerController:
         while input_choice not in input_check_list:
             input_choice = input()
         menu = input_check_list.index(input_choice)
-        menu_list = [self.new_player, self.edit_player, self.players_list, 
-                   self.update_player, self.search_player, self.menu.menu_start]
+        menu_list = [
+            self.new_player,
+            self.edit_player,
+            self.players_list,
+            self.search_player,
+            self.update_player,
+            self.menu.menu_start,
+        ]
         menu_list[menu]()
-    
+
     '''
     def player_menu(self):
         """ start the player menu"""
-        self.menu.menu_player()        
+        self.menu.menu_player()
+        for input in         
         input_dict = {
             "1": self.new_player(),
             "2": self.modif_player(),
@@ -43,7 +51,7 @@ class PlayerController:
             input =int(input())
             if (input >=0 and input <4):
                 input_dict[input]()
-    '''    
+    '''
 
     def new_player(self):
         """ Create a new player"""
@@ -66,8 +74,8 @@ class PlayerController:
         self.menu.edit_player()
 
     def players_list(self):
-        """ Create en report"""
-        
+        """ Create a list of all players"""
+
         players = self.player_table.all()
         for player in players:
             self.menu.player_list(player)
@@ -77,16 +85,23 @@ class PlayerController:
         """ List of the player in alphabetique order"""
         sorted()
         pass
-        
+
     def player_classement_order(self):
         """ List of the player in classement order"""
         sorted()
         pass
-        
+
     def update_player(self):
         """ serch player"""
-        pass        
-    
+        db.uptdate
+
     def search_player(self):
         """ serch player"""
-        pass   
+        
+        self.menu.new_player_lname()
+        input_player = input()
+        player = self.player_table.search(self.playerquery.Last_name == f'{input_player}')
+        for play in player:
+            self.menu.player_list(play)
+        self.player_menu()
+        

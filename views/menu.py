@@ -100,6 +100,18 @@ class Menu:
         print("Gender:", player["Gender"])
         print("Elo:", player["Elo"])
         print("---------------------------------")
+    
+    def player_search(self, player):
+        """ give the search of the players"""
+
+        print("-------Your research-------------")
+        print("doc_id:", player.doc_id)
+        print("Last_name:", player["Last_name"])
+        print("First_name:", player["First_name"])
+        print("Birth_date:", player["Birth_date"])
+        print("Gender:", player["Gender"])
+        print("Elo:", player["Elo"])
+        print("---------------------------------")
 
     def edit_player(self):
         """ menu to chioce the action editting player"""

@@ -19,11 +19,11 @@ class Tournament:
     def serialized_tournament(self):
         """" serialization for save in TinyDB """
         serialized_tournament = {
-            'Tournament name': self.name, 
-            'Tournament location': self.location,
-            'Tournament date': self.date,
-            'Tournament rondes': self.rondes,
-            'Tournament tournees': self.tournees_list,
-            'Tournament description' : self.description,
+            'Tournament_name': self.name, 
+            'Tournament_location': self.location,
+            'Tournament_date': self.date,
+            'Tournament_rondes': self.rondes,
+            'Tournament_tournees': self.tournees_list,
+            'Tournament_description' : self.description,
         }
         return serialized_tournament

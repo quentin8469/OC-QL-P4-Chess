@@ -19,9 +19,9 @@ class Player:
     def serialized_player(self):
         """" serialization for save in TinyDB """
         serialized_player = {
-            'Last name': self.lastname, 
-            'First name': self.firstname,
-            'Birth date': self.birth_date,
+            'Last_name': self.lastname, 
+            'First_name': self.firstname,
+            'Birth_date': self.birth_date,
             'Gender': self.gender,
             'Elo' : self.elo,
         }

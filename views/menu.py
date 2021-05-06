@@ -147,12 +147,12 @@ class Menu:
 
         print("--------Liste des tournoi--------")
         print("doc_id:", tournament.doc_id)
-        print("Tournament name:", tournament["Tournament name"])
-        print("Tournament location:", tournament["Tournament location"])
-        print("Tournament date:", tournament["Tournament date"])
-        print("Tournament rondes:", tournament["Tournament rondes"])
-        print("Tournament tournees:", tournament["Tournament tournees"])
-        print("Tournament description:", tournament["Tournament description"])
+        print("Tournament_name:", tournament["Tournament_name"])
+        print("Tournament_location:", tournament["Tournament_location"])
+        print("Tournament_date:", tournament["Tournament_date"])
+        print("Tournament_rondes:", tournament["Tournament_rondes"])
+        print("Tournament_tournees:", tournament["Tournament_tournees"])
+        print("Tournament_description:", tournament["Tournament_description"])
         print("---------------------------------")
 
 

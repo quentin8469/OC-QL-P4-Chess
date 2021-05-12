@@ -26,4 +26,3 @@ class Player:
             'Elo' : self.elo,
         }
         return serialized_player
-        

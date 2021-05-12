@@ -32,7 +32,8 @@ class Menu:
         print("3.Player list")
         print("4.Player search")
         print("5.Player update")
-        print("6.Return to start menu")
+        print("6.Load player")
+        print("7.Return to start menu")
         print("-------------------------------")
 
     def menu_tournament(self):
@@ -60,7 +61,7 @@ class Menu:
         print("5.List of all tournaments")
         print("6.List of all rondes in a tournament")
         print("7.List of all matchs in a tournament")
-        print("M.Return to start menu")
+        print("8.Return to start menu")
         print("-------------------------------")
 
     # Player creation actions
@@ -111,14 +112,6 @@ class Menu:
         print("Birth_date:", player["Birth_date"])
         print("Gender:", player["Gender"])
         print("Elo:", player["Elo"])
-        print("---------------------------------")
-
-    def edit_player(self):
-        """ menu to chioce the action editting player"""
-        print("---------------------------------")
-        print("1.Edit elo player")
-        print("2.del player")
-        print("3.Return to start menu")
         print("---------------------------------")
 
     # Tournament creation actions

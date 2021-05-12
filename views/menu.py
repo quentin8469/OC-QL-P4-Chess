@@ -28,12 +28,10 @@ class Menu:
         print("--------- Player Menu ---------")
         print("welcome, please select your action and press Enter")
         print("1.New player")
-        print("2.Edit player")
+        print("2.Edit player Elo")
         print("3.Player list")
         print("4.Player search")
-        print("5.Player update")
-        print("6.Load player")
-        print("7.Return to start menu")
+        print("5.Return to start menu")
         print("-------------------------------")
 
     def menu_tournament(self):

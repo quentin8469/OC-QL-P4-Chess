@@ -11,7 +11,7 @@ class Menu:
         """ docting """
         pass
 
-    # menu creation
+# -------------------view start---------------------------------------------
     def menu_start(self):
         """ print the start menu """
         print("--------- Start Menu ---------")
@@ -23,6 +23,7 @@ class Menu:
         print("Choose your action please")
         print("------------------------------")
 
+# --------------------- view player----------------------------------------------
     def menu_player(self):
         """ print the Player menu """
         print("--------- Player Menu ---------")
@@ -33,36 +34,6 @@ class Menu:
         print("4.Player search")
         print("5.Return to start menu")
         print("-------------------------------")
-
-    def menu_tournament(self):
-        """ print the Tournament menu """
-        print("--------- Tournament Menu ---------")
-        print("welcome, please select your action and press Enter")
-        print("1.New Tournament")
-        print("2.Edit Tournament")
-        print("3.List of Tournament")
-        print("4.load Tournament")
-        print("5.Report")
-        print("6.Return to start menu")
-        print("-----------------------------------")
-
-    def menu_report(self):
-        """ print the report menu """
-        print("--------- Report Menu ---------")
-        print("welcome, please select your action and press Enter")
-        print("List of all actors:")
-        print("    1. Alphabetique order")
-        print("    2. Classement order")
-        print("List of all player for one tournament:")
-        print("    3. Alphabetique order")
-        print("    4. Classement order")
-        print("5.List of all tournaments")
-        print("6.List of all rondes in a tournament")
-        print("7.List of all matchs in a tournament")
-        print("8.Return to start menu")
-        print("-------------------------------")
-
-    # Player creation actions
 
     def new_player_number(self):
         """ give number of player you want add"""
@@ -112,7 +83,20 @@ class Menu:
         print("Elo:", player["Elo"])
         print("---------------------------------")
 
-    # Tournament creation actions
+
+#-------------------------- view Tournament ------------------------------------
+    def menu_tournament(self):
+        """ print the Tournament menu """
+        print("--------- Tournament Menu ---------")
+        print("welcome, please select your action and press Enter")
+        print("1.New Tournament")
+        print("2.Edit Tournament")
+        print("3.List of Tournament")
+        print("4.load Tournament")
+        print("5.Report")
+        print("6.Return to start menu")
+        print("-----------------------------------")
+
     def new_tournament_name(self):
         """ get the tournament name"""
         print("Tournament name: ")
@@ -158,5 +142,34 @@ class Menu:
         print("Tournament_description:", tournament["Tournament_description"])
         print("---------------------------------")
 
+# ---------------------------- view report -------------------------------------
 
-# report action
+    def menu_report(self):
+        """ print the report menu """
+        print("--------- Report Menu ---------")
+        print("welcome, please select your action and press Enter")
+        print("List of all actors:")
+        print("    1. Alphabetique order")
+        print("    2. Classement order")
+        print("List of all player for one tournament:")
+        print("    3. Alphabetique order")
+        print("    4. Classement order")
+        print("5.List of all tournaments")
+        print("6.List of all rondes in a tournament")
+        print("7.List of all matchs in a tournament")
+        print("8.Return to start menu")
+        print("-------------------------------")
+        
+# ----------------------- view Round -------------------------------------------
+    
+    def first_round(self):
+        """ give the view player vs player """
+        pass
+    def f_round(self):
+        """ doc"""
+        print('Round 1:')
+        print(" press enter to start the round")
+        print("Enter the score of the round")
+        print(" Press enter to finish the round")
+        print(" Select if you want a other round")
+        print("All the round are finish")

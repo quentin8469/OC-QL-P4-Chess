@@ -14,6 +14,7 @@ class Player:
         self.birth_date = birth_date
         self.gender = gender
         self.elo = elo
+        self.score = 0.0
     
     
     def serialized_player(self):
@@ -24,5 +25,6 @@ class Player:
             'Birth_date': self.birth_date,
             'Gender': self.gender,
             'Elo' : self.elo,
+            'Score' : self.score
         }
         return serialized_player

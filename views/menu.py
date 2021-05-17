@@ -11,7 +11,7 @@ class Menu:
         """ docting """
         pass
 
-# -------------------view start---------------------------------------------
+    # -------------------view start---------------------------------------------
     def menu_start(self):
         """ print the start menu """
         print("--------- Start Menu ---------")
@@ -24,7 +24,7 @@ class Menu:
         print("Choose your action please")
         print("------------------------------")
 
-# --------------------- view player----------------------------------------------
+    # --------------------- view player-----------------------------------------
     def menu_player(self):
         """ print the Player menu """
         print("--------- Player Menu ---------")
@@ -72,7 +72,7 @@ class Menu:
         print("Elo:", player["Elo"])
         print("Score:", player["Score"])
         print("---------------------------------")
-    
+
     def player_search(self, player):
         """ give the search of the players"""
 
@@ -85,8 +85,7 @@ class Menu:
         print("Elo:", player["Elo"])
         print("---------------------------------")
 
-
-#-------------------------- view Tournament ------------------------------------
+    # -------------------------- view Tournament -------------------------------
     def menu_tournament(self):
         """ print the Tournament menu """
         print("--------- Tournament Menu ---------")
@@ -146,7 +145,7 @@ class Menu:
         print("Tournament_description:", tournament["Tournament_description"])
         print("---------------------------------")
 
-# ---------------------------- view report -------------------------------------
+    # ---------------------------- view report ---------------------------------
 
     def menu_report(self):
         """ print the report menu """
@@ -163,57 +162,147 @@ class Menu:
         print("7.List of all matchs in a tournament")
         print("8.Return to start menu")
         print("-------------------------------")
-        
-# ----------------------- view Round -------------------------------------------
+
+    # ----------------------- view Round ---------------------------------------
     def start_view(self):
         """ start tournament view """
         print("1. Select tournament by id")
-        
+
     def first_round(self, p, c):
         """ give the view player vs player """
         print("----- Round players classement-----")
-        print("P1:", p[0]["Last_name"], p[0]["Elo"],"vs","P2:",c[0]["Last_name"], c[0]["Elo"])
-        print("P3:", p[1]["Last_name"], p[1]["Elo"],"vs","P4:",c[1]["Last_name"], c[1]["Elo"])
-        print("P5:", p[2]["Last_name"], p[2]["Elo"],"vs","P6:",c[2]["Last_name"], c[2]["Elo"])
-        print("P7:", p[3]["Last_name"], p[3]["Elo"],"vs","P8:",c[3]["Last_name"], c[3]["Elo"])
-        
-        
+        print(
+            "P1:",
+            p[0]["Last_name"],
+            p[0]["Elo"],
+            "vs",
+            "P2:",
+            c[0]["Last_name"],
+            c[0]["Elo"],
+        )
+        print(
+            "P3:",
+            p[1]["Last_name"],
+            p[1]["Elo"],
+            "vs",
+            "P4:",
+            c[1]["Last_name"],
+            c[1]["Elo"],
+        )
+        print(
+            "P5:",
+            p[2]["Last_name"],
+            p[2]["Elo"],
+            "vs",
+            "P6:",
+            c[2]["Last_name"],
+            c[2]["Elo"],
+        )
+        print(
+            "P7:",
+            p[3]["Last_name"],
+            p[3]["Elo"],
+            "vs",
+            "P8:",
+            c[3]["Last_name"],
+            c[3]["Elo"],
+        )
+
     def f_round(self, p, c):
         """ view to say who is the winner"""
         print("--------- Choose the winner or draw -----------")
-        print("Winner:", p[0]["Last_name"], "[1]","or", c[0]["Last_name"], "[2]" )
+        print("Winner:", p[0]["Last_name"], "[1]", "or", c[0]["Last_name"], "[2]")
         print("Draw: [3)")
-        print("Winner:", p[1]["Last_name"], "[1]","or", c[1]["Last_name"], "[2]" )
+        print("Winner:", p[1]["Last_name"], "[1]", "or", c[1]["Last_name"], "[2]")
         print("Draw: [3)")
-        print("Winner:", p[2]["Last_name"], "[1]","or", c[2]["Last_name"], "[2]" )
+        print("Winner:", p[2]["Last_name"], "[1]", "or", c[2]["Last_name"], "[2]")
         print("Draw: [3)")
-        print("Winner:", p[3]["Last_name"], "[1]","or", c[3]["Last_name"], "[2]" )
+        print("Winner:", p[3]["Last_name"], "[1]", "or", c[3]["Last_name"], "[2]")
         print("Draw: [3)")
         print("The round is finish, enter results:")
-		
+
     def new_round(self):
         """ view to choose to start a other round"""
         print("Results correctly added")
         print("Start the round? y/n")
-        
+
     def other_round(self, player):
         """ view of the player liste for the score management """
         print("----- Round players classement-----")
-        print("P1:",player[0]["Last_name"],player[0]["Score"],"vs","P2:",player[1]["Last_name"],player[1]["Score"])
-        print("P3:",player[2]["Last_name"],player[2]["Score"],"vs","P4:",player[3]["Last_name"],player[3]["Score"])
-        print("P5:",player[4]["Last_name"],player[4]["Score"],"vs","P6:",player[5]["Last_name"],player[5]["Score"])
-        print("P7:",player[6]["Last_name"],player[6]["Score"],"vs","P8:",player[7]["Last_name"],player[7]["Score"])
-        
-    
+        print(
+            "P1:",
+            player[0]["Last_name"],
+            player[0]["Score"],
+            "vs",
+            "P2:",
+            player[1]["Last_name"],
+            player[1]["Score"],
+        )
+        print(
+            "P3:",
+            player[2]["Last_name"],
+            player[2]["Score"],
+            "vs",
+            "P4:",
+            player[3]["Last_name"],
+            player[3]["Score"],
+        )
+        print(
+            "P5:",
+            player[4]["Last_name"],
+            player[4]["Score"],
+            "vs",
+            "P6:",
+            player[5]["Last_name"],
+            player[5]["Score"],
+        )
+        print(
+            "P7:",
+            player[6]["Last_name"],
+            player[6]["Score"],
+            "vs",
+            "P8:",
+            player[7]["Last_name"],
+            player[7]["Score"],
+        )
+
     def oth_round(self, player):
         """ view for choose the winner """
         print("Choose the winner or draw")
-        print("Winner:", player[0]["Last_name"], "[1]","or", player[1]["Last_name"], "[2]" )
+        print(
+            "Winner:",
+            player[0]["Last_name"],
+            "[1]",
+            "or",
+            player[1]["Last_name"],
+            "[2]",
+        )
         print("Draw: [3)")
-        print("Winner:", player[2]["Last_name"], "[1]","or", player[3]["Last_name"], "[2]" )
+        print(
+            "Winner:",
+            player[2]["Last_name"],
+            "[1]",
+            "or",
+            player[3]["Last_name"],
+            "[2]",
+        )
         print("Draw: [3)")
-        print("Winner:", player[4]["Last_name"], "[1]","or", player[5]["Last_name"], "[2]" )
+        print(
+            "Winner:",
+            player[4]["Last_name"],
+            "[1]",
+            "or",
+            player[5]["Last_name"],
+            "[2]",
+        )
         print("Draw: [3)")
-        print("Winner:", player[6]["Last_name"], "[1]","or", player[7]["Last_name"], "[2]" )
+        print(
+            "Winner:",
+            player[6]["Last_name"],
+            "[1]",
+            "or",
+            player[7]["Last_name"],
+            "[2]",
+        )
         print("Draw: [3)")
         print("The round is finish, start a other round? y/n")

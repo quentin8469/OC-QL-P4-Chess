@@ -39,7 +39,7 @@ class Controllerv3:
         ]
         menu_list[menu]()
 
-    # -------------------tournament code --------------------------------------------
+    # -------------------tournament code ---------------------------------------
     def tournament_menu(self):
         """ start the tournament menu"""
         self.menu.menu_tournament()
@@ -96,7 +96,7 @@ class Controllerv3:
         self.tt_players = self.player_list_for_tt()
         self.tournament_table.insert(self.tt_players)
 
-    # ----------------------- Player code ------------------------------------------
+    # ----------------------- Player code --------------------------------------
     def player_menu(self):
         """ start the player menu"""
         self.menu.menu_player()
@@ -184,7 +184,7 @@ class Controllerv3:
             player_tt_list.append(players)
         return player_tt_list
 
-    # ----------------------- Report code ------------------------------------------
+    # ----------------------- Report code --------------------------------------
     def report_menu(self):
         """ start the report menu"""
         self.menu.menu_report()
@@ -227,7 +227,7 @@ class Controllerv3:
         """ give all matchs in a tournament"""
         pass
 
-    # --------------------- Game ----------------------------------------------------
+    # --------------------- Game -----------------------------------------------
 
     def first_round_by_elo(self):
         """ tri de la p_list celon le elo de chaque joueur"""

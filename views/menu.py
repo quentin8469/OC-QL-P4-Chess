@@ -192,7 +192,8 @@ class Menu:
         """ view of the player liste for the score management """
         print("----- Round players classement-----")
         for i in range(0,len(player), 2):
-            print("Player:",player[i].lastname,player[i].score,"vs","Player:",player[i+1].lastname,player[i].score)
+            print("Player:", player[i].lastname, player[i].score,"vs","Player:",player[i+1].lastname, player[i+1].score)
+        print("------------------------------------")
 
     def oth_round(self, player):
         """ view for choose the winner """

@@ -7,14 +7,14 @@ class Player:
     All player informations
     """
     
-    def __init__(self, lastname, firstname, birth_date, gender, elo):
+    def __init__(self, lastname, firstname, birth_date, gender, elo, score=0.0):
         """ initilisation of a player """
         self.lastname = lastname
         self.firstname = firstname
         self.birth_date = birth_date
         self.gender = gender
         self.elo = elo
-        self.score = 0.0
+        self.score = score
     
     
     def serialized_player(self):
@@ -28,3 +28,15 @@ class Player:
             'Score' : self.score
         }
         return serialized_player
+        
+    @classmethod
+    def deserializeplayer(cls, player):
+        """ deserialized player from bdd"""
+        lastname = player ['Last_name']
+        firstname = player ['First_name']
+        birth_date = player ['Birth_date']
+        gender = player ['Gender']
+        elo = player ['Elo']
+        score = player ['Score']
+        player = Player(lastname, firstname, birth_date, gender, elo, score)
+        return player

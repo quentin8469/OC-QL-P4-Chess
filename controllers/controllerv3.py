@@ -29,15 +29,15 @@ class Controllerv3:
         input_check_list = ["1", "2", "3", "4", "Q"]
         while input_choice not in input_check_list:
             input_choice = input()
-        menu = input_check_list.index(input_choice)
+        index_menu = input_check_list.index(input_choice)
         menu_list = [
             self.tournament_menu,
             self.player_menu,
             self.first_round_by_elo,
             self.report_menu,
-            "Kiss",
+            quit,
         ]
-        menu_list[menu]()
+        menu_list[index_menu]()
 
     # -------------------tournament code ---------------------------------------
     def tournament_menu(self):
@@ -47,7 +47,7 @@ class Controllerv3:
         input_check_list = ["1", "2", "3", "4", "5"]
         while input_choice not in input_check_list:
             input_choice = input()
-        menu = input_check_list.index(input_choice)
+        index_menu = input_check_list.index(input_choice)
         menu_list = [
             self.new_tt,
             self.edit_tt,
@@ -55,7 +55,7 @@ class Controllerv3:
             self.load_tt,
             self.start_menu,
         ]
-        menu_list[menu]()
+        menu_list[index_menu]()
 
     def new_tt(self):
         """ doc """
@@ -104,7 +104,7 @@ class Controllerv3:
         input_check_list = ["1", "2", "3", "4", "5"]
         while input_choice not in input_check_list:
             input_choice = input()
-        menu = input_check_list.index(input_choice)
+        index_menu = input_check_list.index(input_choice)
         menu_list = [
             self.new_player,
             self.edit_player,
@@ -181,6 +181,7 @@ class Controllerv3:
         """ add player in a tt list"""
         player_tt_list = []
         for players in self.player_table.all():
+            
             player_tt_list.append(players)
         return player_tt_list
 
@@ -233,21 +234,28 @@ class Controllerv3:
         """ tri de la p_list celon le elo de chaque joueur"""
         p_elo = []
         p_score = []
-        players = self.player_table.all()
-        classe_order = sorted(players, key=lambda x: x["Elo"], reverse=True)
-        for elo in classe_order:
-            p_elo.append(elo)
+        for player in self.player_table.all():
+            p_elo.append(Player.deserializeplayer(player))
 
-        middle_one = p_elo[0:4]
-        middle_two = p_elo[4:8]
-        self.menu.first_round(middle_one, middle_two)
+        p_elo.sort(key=lambda x: x.elo, reverse=True)
+        
+        middle_one = p_elo[:4]
+        middle_two = p_elo[4:]
+        print(middle_one[0].elo)
+        print(middle_two[0].elo)
+        
+        self.menu.f_round(middle_one, middle_two)
         self.menu.new_round()
         start = input()
+        check_start = ["y","n"]
+        while start not in check_start:
+            start = input()
+        '''
         if start == "y":
             self.menu.f_round(middle_one, middle_two)
             choice = input()
-            check_choise = ["1", "2", "3"]
-            while choice not in check_choise:
+            check_choice = ["1", "2", "3"]
+            while choice not in check_choice:
                 choice = input()
             if choice == "1":
                 middle_one[0]["Score"] += int(1)
@@ -327,11 +335,17 @@ class Controllerv3:
 
         self.menu.new_round()
         next_round = input()
+        check_next = ["y","n"]
+        while next_round not in check_next:
+            next_round = input()
         if next_round == "y":
             self.next_round_by_score(p_score)
+        '''
 
     def next_round_by_score(self, p_score):
         """ tri de la liste de joueur celon le score """
+        rcount = 2
+        #print("Round: ", rcount)
 
         score_order = sorted(
             p_score, key=lambda x: (x["Score"], x["Elo"]), reverse=True
@@ -344,6 +358,9 @@ class Controllerv3:
 
         self.menu.new_round()
         start = input()
+        check_start = ["y","n"]
+        while start not in check_start:
+            start = input()
         if start == "y":
             self.menu.oth_round(p_score_liste)
             # 1
@@ -418,5 +435,11 @@ class Controllerv3:
                 p_score_liste[7]["Score"] += float(0.5)
                 p_sl.append(p_score_liste[6])
                 p_sl.append(p_score_liste[7])
-        print(p_sl)
-        self.next_round_by_score(p_sl)
+        #print(p_sl)
+        rcount +=1
+        if rcount !=5:
+            print("Round: ", rcount)
+            #rcount +=1
+            self.next_round_by_score(p_sl)
+        else:
+            print(" c'est fini")

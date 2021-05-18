@@ -231,7 +231,7 @@ class Controllerv3:
     # --------------------- Game -----------------------------------------------
 
     def first_round_by_elo(self):
-        """ tri de la p_list celon le elo de chaque joueur"""
+        """ tri de la p_list selon le elo de chaque joueur"""
         p_elo = []
         # deserilization and create player object object
         for player in self.player_table.all():
@@ -243,6 +243,7 @@ class Controllerv3:
         
     def scoring_first_round(self, middle_one, middle_two):
         """ manage the scoring """
+        
         p_score = []
         self.menu.f_round(middle_one, middle_two)
         self.menu.new_round()
@@ -252,91 +253,42 @@ class Controllerv3:
             start = input()
         if start == "y":
             self.menu.first_round(middle_one, middle_two)
-            for i in range(2):
+            pcount = 0
+            while pcount < 4:
+
                 choice = input()
                 check_choice = ["1", "2", "3"]
                 while choice not in check_choice:
-                   choice = input()
-                #for i in range(4):
+                    choice = input()
+                    
                 if choice == "1":
-                    middle_one[i].score += int(1)
-                    p_score.append(middle_one[i])
-                    p_score.append(middle_two[i])
-
+                    print("bob1")
+                    middle_one[0].score += int(1)
+                    p_score.append(middle_one[0])
+                    p_score.append(middle_two[0])
+                    middle_one.pop(0)
+                    middle_two.pop(0)
+                       
                 if choice == "2":
-                    middle_two[i].score += int(1)
-                    p_score.append(middle_one[i])
-                    p_score.append(middle_two[i])
-
+                    print("bob2")
+                    middle_two[0].score += int(1)
+                    p_score.append(middle_one[0])
+                    p_score.append(middle_two[0])
+                    middle_one.pop(0)
+                    middle_two.pop(0)
+                    
                 if choice == "3":
-                    middle_one[i].score += float(0.5)
-                    middle_two[i]["Score"] += float(0.5)
-                    p_score.append(middle_one[i])
-                    p_score.append(middle_two[i])
-            
-        self.menu.other_round(p_score)
+                    print("bob3")
+                    middle_one[0].score += float(0.5)
+                    middle_two[0].score += float(0.5)
+                    p_score.append(middle_one[0])
+                    p_score.append(middle_two[0])
+                    middle_one.pop(0)
+                    middle_two.pop(0)
+                     
+                pcount +=1
         
-        '''
-            choice = input()
-            check_choise = ["1", "2", "3"]
-            while choice not in check_choise:
-                choice = input()
-            if choice == "1":
-                middle_one[1].score += int(1)
-                p_score.append(middle_one[1])
-                p_score.append(middle_two[1])
-
-            if choice == "2":
-                middle_two[1].score += int(1)
-                p_score.append(middle_one[1])
-                p_score.append(middle_two[1])
-
-            if choice == "3":
-                middle_one[1].score += float(0.5)
-                middle_two[1].score += float(0.5)
-                p_score.append(middle_one[1])
-                p_score.append(middle_two[1])
-
-            choice = input()
-            check_choise = ["1", "2", "3"]
-            while choice not in check_choise:
-                choice = input()
-            if choice == "1":
-                middle_one[2].score += int(1)
-                p_score.append(middle_one[2])
-                p_score.append(middle_two[2])
-
-            if choice == "2":
-                middle_two[2].score += int(1)
-                p_score.append(middle_one[2])
-                p_score.append(middle_two[2])
-
-            if choice == "3":
-                middle_one[2].score += float(0.5)
-                middle_two[2].score += float(0.5)
-                p_score.append(middle_one[2])
-                p_score.append(middle_two[2])
-
-            choice = input()
-            check_choise = ["1", "2", "3"]
-            while choice not in check_choise:
-                choice = input()
-            if choice == "1":
-                middle_one[3].score += int(1)
-                p_score.append(middle_one[3])
-                p_score.append(middle_two[3])
-
-            if choice == "2":
-                middle_two[3].score += int(1)
-                p_score.append(middle_one[3])
-                p_score.append(middle_two[3])
-
-            if choice == "3":
-                middle_one[3].score += float(0.5)
-                middle_two[3].score += float(0.5)
-                p_score.append(middle_one[3])
-                p_score.append(middle_two[3])
-
+        self.menu.other_round(p_score)
         self.menu.new_round()
         next_round = input()
         check_next = ["y","n"]
@@ -344,11 +296,18 @@ class Controllerv3:
             next_round = input()
         if next_round == "y":
             self.next_round_by_score(p_score)
-        '''
+        else:
+            pass
 
+    def other_round_by_score(self, p_score):
+        """ tri de la p_list selon le score et elo de chaque joueur"""
+        return p_score.sort(key=lambda x: (x.score, x.elo), reverse=True)
+        
 
     def next_round_by_score(self, p_score):
         """ tri de la liste de joueur celon le score """
+        self.menu.other_round(p_score)
+        '''
 
         p_score.sort(key=lambda x: (x.score, x.elo), reverse=True)
         
@@ -442,3 +401,4 @@ class Controllerv3:
             self.next_round_by_score(p_sl)
         else:
             print(" c'est fini")
+    '''

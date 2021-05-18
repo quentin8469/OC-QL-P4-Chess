@@ -168,47 +168,16 @@ class Menu:
         """ start tournament view """
         print("1. Select tournament by id")
 
-    def first_round(self, p, c):
-        """ give the view player vs player """
-        print("----- Round players classement-----")
-        print(
-            "P1:",
-            p[0]["Last_name"],
-            p[0]["Elo"],
-            "vs",
-            "P2:",
-            c[0]["Last_name"],
-            c[0]["Elo"],
-        )
-        print(
-            "P3:",
-            p[1]["Last_name"],
-            p[1]["Elo"],
-            "vs",
-            "P4:",
-            c[1]["Last_name"],
-            c[1]["Elo"],
-        )
-        print(
-            "P5:",
-            p[2]["Last_name"],
-            p[2]["Elo"],
-            "vs",
-            "P6:",
-            c[2]["Last_name"],
-            c[2]["Elo"],
-        )
-        print(
-            "P7:",
-            p[3]["Last_name"],
-            p[3]["Elo"],
-            "vs",
-            "P8:",
-            c[3]["Last_name"],
-            c[3]["Elo"],
-        )
 
     def f_round(self, p, c):
+        """ give the view player vs player """
+        print("----- Round players classement-----")
+        print("P1:",p[0].lastname,p[0].elo,"vs","P2:",c[0].lastname,c[0].elo)
+        print("P3:",p[1].lastname,p[1].elo,"vs","P4:",c[1].lastname,c[1].elo)
+        print("P5:",p[2].lastname,p[2].elo,"vs","P6:",c[2].lastname,c[2].elo)
+        print("P7:",p[3].lastname,p[3].elo,"vs","P8:",c[3].lastname,c[3].elo)
+
+    def frist_round(self, p, c):
         """ view to say who is the winner"""
         print("--------- Choose the winner or draw -----------")
         print("Winner:", p[0]["Last_name"], "[1]", "or", c[0]["Last_name"], "[2]")
@@ -223,7 +192,7 @@ class Menu:
 
     def new_round(self):
         """ view to choose to start a other round"""
-        print("Results correctly added")
+        #print("Results correctly added")
         print("Start the round? y/n")
 
     def other_round(self, player):

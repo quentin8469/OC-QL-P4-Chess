@@ -143,7 +143,7 @@ class Menu:
         print("Tournament_Tcontrol:", tournament.time_control)
         print("Tournament_description:", tournament.description)
         print("---------------------------------")
-
+        
     def add_player_confirm(self):
         """ get the tournament name"""
         print("Confirme player ? y/n ")

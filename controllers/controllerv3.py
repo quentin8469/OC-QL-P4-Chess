@@ -100,23 +100,18 @@ class Controllerv3:
         for tournoi in tt:
             self.menu.tournament_load(tournoi)
         return tt[0]
-       
-        
+              
     def add_players_in_tt(self):
         """ add a list of player for the tournament"""
         tournoi = self.load_tt()
-        print("bob10")
         pcount = 0
         
-        while pcount < 2:
+        while pcount < 8:
             players = self.search_player()
-            print("bob20")
             self.menu.add_player_confirm()
             confirmation = input()
-            print("bob30")
             if confirmation == "y":
                 for player in players:
-                    print("bob100")
                     tournoi.add_player(Player.deserializeplayer(player))
                     self.menu.tournament_load(tournoi)
                     pcount += 1
@@ -124,15 +119,12 @@ class Controllerv3:
                 self.menu.tournament_load(tournoi)
                 pcount +=0
                 
-            #pcount += 1
-        #plist = []  
-        #for player in tournoi.tt_players:
-            #test = player.lastname
-            #plist.append(test)
-            
-            
-        #print(plist)
-        #self.tournament_table.insert(tournoi.serialized_tournament())
+        plist = []  
+        for players in tournoi.tt_players:
+            player = players.serialized_player()
+            plist.append(player)
+        self.tournament_table.update(
+            {"Tournament_players": plist}, self.tournamentquery.Tournament_name == tournoi.name)
         self.tournament_menu()
         
 
@@ -274,9 +266,10 @@ class Controllerv3:
 
     def first_round_by_elo(self, tournoi):
         """ tri de la p_list selon le elo de chaque joueur"""
+        
         p_elo =[]
         for player in tournoi.tt_players:
-            p_elo.append(player)
+            p_elo.append(Player.deserializeplayer(player))
         p_elo.sort(key=lambda x: x.elo, reverse=True)    
         middle_one = p_elo[:4]
         middle_two = p_elo[4:]
@@ -365,13 +358,7 @@ class Controllerv3:
     def game(self):
         """ Run chess game"""
         tournoi = self.load_tt()
-        print("bob1")
-        print(tournoi.tt_players)
-        print("bob2")
-        self.first_round_by_elo(tournoi)
-        '''
         p_score =[]
-        #tournoi.add_player(p_score)
         rcount = 0     
         while rcount < 4:
             if rcount < 1:
@@ -379,23 +366,13 @@ class Controllerv3:
                 scores = self.scoring_first_round(r1_order, r2_order)
                 for score in scores:
                     p_score.append(score)
-                print("bob3")
-                print(tournoi.tt_players)
-                print("bob4")
-                    
+ 
             else:
                 other_round = self.next_round_by_score(p_score)
                 for score in other_round:
                     p_score.append(score)
-                print("bob5")
-                print(tournoi.tt_players)
-                print("bob6")
-                
+ 
             rcount += 1    
         p_score.sort(key=lambda x: (x.score, x.elo), reverse=True)
-        print("bob7")
-        print(tournoi.tt_players)
-        print("bob8")
         self.menu.end_tournament(p_score)
         self.start_menu()
-        '''

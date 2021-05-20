@@ -9,7 +9,11 @@ class Ronde:
     
     def __init__(self):
         """ docting """
-        pass
+		self.name =
+		self.sttime =
+		self.endtime =
+		self.lmatch = []
+        
         
     def get_firstrounde(self):
         """ get the first round with Elo rank """

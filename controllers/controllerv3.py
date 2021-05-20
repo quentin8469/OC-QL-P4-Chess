@@ -72,7 +72,7 @@ class Controllerv3:
         ttc = []
         self.menu.new_tournament_description()
         description = input()
-        new_tournament = Tournament(name, location, st_date, e_date, rondes, description, tt_list, pl_list, ttc)
+        new_tournament = Tournament( name, location, st_date, e_date, rondes, tt_list, pl_list, ttc, description)
         self.tournament_table.insert(new_tournament.serialized_tournament())
         self.tournament_menu()
 
@@ -108,7 +108,7 @@ class Controllerv3:
         print("bob10")
         pcount = 0
         
-        while pcount < 8:
+        while pcount < 2:
             players = self.search_player()
             print("bob20")
             self.menu.add_player_confirm()
@@ -125,7 +125,14 @@ class Controllerv3:
                 pcount +=0
                 
             #pcount += 1
-        
+        #plist = []  
+        #for player in tournoi.tt_players:
+            #test = player.lastname
+            #plist.append(test)
+            
+            
+        #print(plist)
+        #self.tournament_table.insert(tournoi.serialized_tournament())
         self.tournament_menu()
         
 
@@ -265,14 +272,12 @@ class Controllerv3:
 
     # --------------------- Game -----------------------------------------------
 
-    def first_round_by_elo(self):
+    def first_round_by_elo(self, tournoi):
         """ tri de la p_list selon le elo de chaque joueur"""
-
-        p_elo = []
-        # deserilization and create player object object
-        for player in self.player_table.all():
-            p_elo.append(Player.deserializeplayer(player))
-        p_elo.sort(key=lambda x: x.elo, reverse=True)
+        p_elo =[]
+        for player in tournoi.tt_players:
+            p_elo.append(player)
+        p_elo.sort(key=lambda x: x.elo, reverse=True)    
         middle_one = p_elo[:4]
         middle_two = p_elo[4:]
         return middle_one, middle_two
@@ -363,12 +368,14 @@ class Controllerv3:
         print("bob1")
         print(tournoi.tt_players)
         print("bob2")
+        self.first_round_by_elo(tournoi)
+        '''
         p_score =[]
-        tournoi.add_player(p_score)
+        #tournoi.add_player(p_score)
         rcount = 0     
         while rcount < 4:
             if rcount < 1:
-                r1_order, r2_order = self.first_round_by_elo()
+                r1_order, r2_order = self.first_round_by_elo(tournoi)
                 scores = self.scoring_first_round(r1_order, r2_order)
                 for score in scores:
                     p_score.append(score)
@@ -391,3 +398,4 @@ class Controllerv3:
         print("bob8")
         self.menu.end_tournament(p_score)
         self.start_menu()
+        '''

@@ -53,4 +53,5 @@ class Tournament:
     
     def add_player(self, player):
         """ add player in tt_players """
+        
         self.tt_players.append(player)

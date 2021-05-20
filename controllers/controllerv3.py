@@ -14,11 +14,11 @@ class Controllerv3:
     def __init__(self):
         """ constructor initialisation """
         self.menu = Menu()
-        self.tournamentdb = TinyDB("tournament2.json")
+        self.tournamentdb = TinyDB("tournament3.json")
         self.playerdb = TinyDB("players1.json")
         self.tournamentquery = Query()
         self.playerquery = Query()
-        self.tournament_table = self.tournamentdb.table("tournament2")
+        self.tournament_table = self.tournamentdb.table("tournament3")
         self.player_table = self.playerdb.table("players1")
         self.start_menu()
 
@@ -33,7 +33,7 @@ class Controllerv3:
         menu_list = [
             self.tournament_menu,
             self.player_menu,
-            self.first_round_by_elo,
+            self.game,
             self.report_menu,
             quit,
         ]
@@ -44,7 +44,7 @@ class Controllerv3:
         """ start the tournament menu"""
         self.menu.menu_tournament()
         input_choice = input()
-        input_check_list = ["1", "2", "3", "4", "5"]
+        input_check_list = ["1", "2", "3", "4","5"]
         while input_choice not in input_check_list:
             input_choice = input()
         index_menu = input_check_list.index(input_choice)
@@ -52,7 +52,7 @@ class Controllerv3:
             self.new_tt,
             self.edit_tt,
             self.tt_list,
-            self.load_tt,
+            self.add_players_in_tt,
             self.start_menu,
         ]
         menu_list[index_menu]()
@@ -64,14 +64,15 @@ class Controllerv3:
         self.menu.new_tournament_location()
         location = input()
         self.menu.new_tournament_date()
-        date = input()
-        # self.menu.new_tournament_rondes()
-        # rondes = input()
-        # self.menu.new_tournament_tournees()
-        # tournees = input()
+        st_date = input()
+        e_date = ""
+        rondes = 4
+        tt_list = ()
+        pl_list = []
+        ttc = []
         self.menu.new_tournament_description()
         description = input()
-        new_tournament = Tournament(name, location, date, description)
+        new_tournament = Tournament(name, location, st_date, e_date, rondes, description, tt_list, pl_list, ttc)
         self.tournament_table.insert(new_tournament.serialized_tournament())
         self.tournament_menu()
 
@@ -88,20 +89,53 @@ class Controllerv3:
 
     def load_tt(self):
         """ load a tournament since a json """
-        # deserialisation de la bdd, passer en liste, idem pour les players
-        pass
-
-    def add_players_tt(self):
+        tt = []
+        self.menu.new_tournament_name()
+        Tournament_name = input()
+        tournaments = self.tournament_table.search(
+            self.tournamentquery.Tournament_name == f"{Tournament_name}"
+        )
+        for tournament in tournaments:
+            tt.append(Tournament.deserializett(tournament))
+        for tournoi in tt:
+            self.menu.tournament_load(tournoi)
+        return tt[0]
+       
+        
+    def add_players_in_tt(self):
         """ add a list of player for the tournament"""
-        self.tt_players = self.player_list_for_tt()
-        self.tournament_table.insert(self.tt_players)
+        tournoi = self.load_tt()
+        print("bob10")
+        pcount = 0
+        
+        while pcount < 8:
+            players = self.search_player()
+            print("bob20")
+            self.menu.add_player_confirm()
+            confirmation = input()
+            print("bob30")
+            if confirmation == "y":
+                for player in players:
+                    print("bob100")
+                    tournoi.add_player(Player.deserializeplayer(player))
+                    self.menu.tournament_load(tournoi)
+                    pcount += 1
+            else:
+                self.menu.tournament_load(tournoi)
+                pcount +=0
+                
+            #pcount += 1
+        
+        self.tournament_menu()
+        
+
 
     # ----------------------- Player code --------------------------------------
     def player_menu(self):
         """ start the player menu"""
         self.menu.menu_player()
         input_choice = input()
-        input_check_list = ["1", "2", "3", "4", "5"]
+        input_check_list = ["1", "2", "3", "4"]
         while input_choice not in input_check_list:
             input_choice = input()
         index_menu = input_check_list.index(input_choice)
@@ -109,10 +143,9 @@ class Controllerv3:
             self.new_player,
             self.edit_player,
             self.players_list,
-            self.search_player,
             self.start_menu,
         ]
-        menu_list[menu]()
+        menu_list[index_menu]()
 
     def new_player(self):
         """ Create a new player"""
@@ -175,13 +208,15 @@ class Controllerv3:
         )
         for play in player:
             self.menu.player_search(play)
-        self.player_menu()
+            return player
+        
+        
 
-    def player_list_for_tt(self):
-        """ add player in a tt list"""
+    def players_list_for_tt(self):
+        """ add player in players tt list"""
         player_tt_list = []
         for players in self.player_table.all():
-            
+
             player_tt_list.append(players)
         return player_tt_list
 
@@ -232,6 +267,7 @@ class Controllerv3:
 
     def first_round_by_elo(self):
         """ tri de la p_list selon le elo de chaque joueur"""
+
         p_elo = []
         # deserilization and create player object object
         for player in self.player_table.all():
@@ -239,166 +275,119 @@ class Controllerv3:
         p_elo.sort(key=lambda x: x.elo, reverse=True)
         middle_one = p_elo[:4]
         middle_two = p_elo[4:]
-        self.scoring_first_round(middle_one, middle_two)
-        
+        return middle_one, middle_two
+
     def scoring_first_round(self, middle_one, middle_two):
-        """ manage the scoring """
-        
+        """ manage the scoring of the first round """
+
         p_score = []
         self.menu.f_round(middle_one, middle_two)
         self.menu.new_round()
         start = input()
-        check_start = ["y","n"]
+        check_start = ["y", "n"]
         while start not in check_start:
             start = input()
         if start == "y":
             self.menu.first_round(middle_one, middle_two)
             pcount = 0
             while pcount < 4:
-
                 choice = input()
                 check_choice = ["1", "2", "3"]
                 while choice not in check_choice:
                     choice = input()
-                    
                 if choice == "1":
-                    print("bob1")
                     middle_one[0].score += int(1)
-                    p_score.append(middle_one[0])
-                    p_score.append(middle_two[0])
-                    middle_one.pop(0)
-                    middle_two.pop(0)
-                       
+                    p_score.append(middle_one.pop(0))
+                    p_score.append(middle_two.pop(0))                    
                 if choice == "2":
-                    print("bob2")
                     middle_two[0].score += int(1)
-                    p_score.append(middle_one[0])
-                    p_score.append(middle_two[0])
-                    middle_one.pop(0)
-                    middle_two.pop(0)
-                    
+                    p_score.append(middle_one.pop(0))
+                    p_score.append(middle_two.pop(0))                    
                 if choice == "3":
-                    print("bob3")
                     middle_one[0].score += float(0.5)
                     middle_two[0].score += float(0.5)
-                    p_score.append(middle_one[0])
-                    p_score.append(middle_two[0])
-                    middle_one.pop(0)
-                    middle_two.pop(0)
-                     
-                pcount +=1
-        
-        self.menu.other_round(p_score)
-        self.menu.new_round()
-        next_round = input()
-        check_next = ["y","n"]
-        while next_round not in check_next:
-            next_round = input()
-        if next_round == "y":
-            self.next_round_by_score(p_score)
-        else:
-            pass
+                    p_score.append(middle_one.pop(0))
+                    p_score.append(middle_two.pop(0))
+                pcount += 1
+                
+        if start == "n":
+            self.start_menu()
+        return p_score
 
-    def other_round_by_score(self, p_score):
-        """ tri de la p_list selon le score et elo de chaque joueur"""
-        return p_score.sort(key=lambda x: (x.score, x.elo), reverse=True)
-        
-
-    def next_round_by_score(self, p_score):
+    def next_round_by_score(self, next_pscore):
         """ tri de la liste de joueur celon le score """
-        self.menu.other_round(p_score)
-        '''
 
-        p_score.sort(key=lambda x: (x.score, x.elo), reverse=True)
-        
-        p_sl = []
-
-        self.menu.other_round(p_score)
+        new_player_score_list = []
+        next_pscore.sort(key=lambda x: (x.score, x.elo), reverse=True)
+        self.menu.other_round(next_pscore)
         self.menu.new_round()
         start = input()
-        check_start = ["y","n"]
+        check_start = ["y", "n"]
         while start not in check_start:
             start = input()
         if start == "y":
-            self.menu.oth_round(p_score_liste)
-            # 1
-            choice = input()
-            check_choise = ["1", "2", "3"]
-            while choice not in check_choise:
+            self.menu.oth_round(next_pscore)
+            pcount = 0
+            while pcount < 4:
                 choice = input()
-            if choice == "1":
-                p_score_liste[0]["Score"] += int(1)
-                p_sl.append(p_score_liste[0])
-                p_sl.append(p_score_liste[1])
-            if choice == "2":
-                p_score_liste[1]["Score"] += int(1)
-                p_sl.append(p_score_liste[0])
-                p_sl.append(p_score_liste[1])
-            if choice == "3":
-                p_score_liste[0]["Score"] += float(0.5)
-                p_score_liste[1]["Score"] += float(0.5)
-                p_sl.append(p_score_liste[0])
-                p_sl.append(p_score_liste[1])
-            # 2
-            choice = input()
-            check_choise = ["1", "2", "3"]
-            while choice not in check_choise:
-                choice = input()
-            if choice == "1":
-                p_score_liste[2]["Score"] += int(1)
-                p_sl.append(p_score_liste[2])
-                p_sl.append(p_score_liste[3])
-            if choice == "2":
-                p_score_liste[3]["Score"] += int(1)
-                p_sl.append(p_score_liste[2])
-                p_sl.append(p_score_liste[3])
-            if choice == "3":
-                p_score_liste[2]["Score"] += float(0.5)
-                p_score_liste[3]["Score"] += float(0.5)
-                p_sl.append(p_score_liste[2])
-                p_sl.append(p_score_liste[3])
-            # 3
-            choice = input()
-            check_choise = ["1", "2", "3"]
-            while choice not in check_choise:
-                choice = input()
-            if choice == "1":
-                p_score_liste[4]["Score"] += int(1)
-                p_sl.append(p_score_liste[4])
-                p_sl.append(p_score_liste[5])
-            if choice == "2":
-                p_score_liste[5]["Score"] += int(1)
-                p_sl.append(p_score_liste[4])
-                p_sl.append(p_score_liste[5])
-            if choice == "3":
-                p_score_liste[4]["Score"] += float(0.5)
-                p_score_liste[5]["Score"] += float(0.5)
-                p_sl.append(p_score_liste[4])
-                p_sl.append(p_score_liste[5])
-            # 4
-            choice = input()
-            check_choise = ["1", "2", "3"]
-            while choice not in check_choise:
-                choice = input()
-            if choice == "1":
-                p_score_liste[6]["Score"] += int(1)
-                p_sl.append(p_score_liste[6])
-                p_sl.append(p_score_liste[7])
-            if choice == "2":
-                p_score_liste[7]["Score"] += int(1)
-                p_sl.append(p_score_liste[6])
-                p_sl.append(p_score_liste[7])
-            if choice == "3":
-                p_score_liste[6]["Score"] += float(0.5)
-                p_score_liste[7]["Score"] += float(0.5)
-                p_sl.append(p_score_liste[6])
-                p_sl.append(p_score_liste[7])
-        #print(p_sl)
-        rcount +=1
-        if rcount !=5:
-            print("Round: ", rcount)
-            #rcount +=1
-            self.next_round_by_score(p_sl)
-        else:
-            print(" c'est fini")
-    '''
+                check_choice = ["1", "2", "3"]
+                while choice not in check_choice:
+                    choice = input()
+                if choice == "1":
+                    next_pscore[0].score += int(1)
+                    new_player_score_list.append(next_pscore[0])
+                    new_player_score_list.append(next_pscore[1])
+                    next_pscore.pop(0)
+                    next_pscore.pop(0)
+                if choice == "2":
+                    next_pscore[1].score += int(1)
+                    new_player_score_list.append(next_pscore[0])
+                    new_player_score_list.append(next_pscore[1])
+                    next_pscore.pop(0)
+                    next_pscore.pop(0)
+                if choice == "3":
+                    next_pscore[0].score += float(0.5)
+                    next_pscore[1].score += float(0.5)
+                    new_player_score_list.append(next_pscore[0])
+                    new_player_score_list.append(next_pscore[1])
+                    next_pscore.pop(0)
+                    next_pscore.pop(0)
+                pcount += 1
+        if start == "n":
+            self.start_menu()
+        return new_player_score_list
+
+    def game(self):
+        """ Run chess game"""
+        tournoi = self.load_tt()
+        print("bob1")
+        print(tournoi.tt_players)
+        print("bob2")
+        p_score =[]
+        tournoi.add_player(p_score)
+        rcount = 0     
+        while rcount < 4:
+            if rcount < 1:
+                r1_order, r2_order = self.first_round_by_elo()
+                scores = self.scoring_first_round(r1_order, r2_order)
+                for score in scores:
+                    p_score.append(score)
+                print("bob3")
+                print(tournoi.tt_players)
+                print("bob4")
+                    
+            else:
+                other_round = self.next_round_by_score(p_score)
+                for score in other_round:
+                    p_score.append(score)
+                print("bob5")
+                print(tournoi.tt_players)
+                print("bob6")
+                
+            rcount += 1    
+        p_score.sort(key=lambda x: (x.score, x.elo), reverse=True)
+        print("bob7")
+        print(tournoi.tt_players)
+        print("bob8")
+        self.menu.end_tournament(p_score)
+        self.start_menu()

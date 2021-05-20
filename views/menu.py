@@ -132,7 +132,7 @@ class Menu:
     def tournament_load(self, tournament):
         """ give the liste of the tournament"""
 
-        print("-------- Données du tournoi chargé --------")
+        print("-------- Données du tournoi chargé ---------")
         print("Tournament_name:", tournament.name)
         print("Tournament_location:", tournament.location)
         print("Tournament_start_date:", tournament.start_date)
@@ -142,7 +142,7 @@ class Menu:
         print("Tournament_players:", tournament.tt_players)
         print("Tournament_Tcontrol:", tournament.time_control)
         print("Tournament_description:", tournament.description)
-        print("---------------------------------")
+        print("--------------------------------------------")
         
     def add_player_confirm(self):
         """ get the tournament name"""

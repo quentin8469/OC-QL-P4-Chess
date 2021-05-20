@@ -191,8 +191,8 @@ class Controllerv3:
     def player_classement_order(self):
         """ List of the player in classement order"""
         players = self.player_table.all()
-        classe_order = sorted(players, key=lambda x: x["Elo"], reverse=True)
-        for elo in classe_order:
+        elo_order = sorted(players, key=lambda x: x["Elo"], reverse=True)
+        for elo in elo_order:
             self.menu.player_list(elo)
         self.report_menu()
 
@@ -228,10 +228,10 @@ class Controllerv3:
             self.player_alpha_order,
             self.player_classement_order,
             self.report_player_alpha_order_tt,
-            self.start_menu,
+            self.report_player_rank_order_tt,
             self.report_tt_list,
-            self.start_menu,
-            self.start_menu,
+            self.report_all_rondes,
+            self.report_all_match,
             self.start_menu,
         ]
         menu_list[menu]()
@@ -254,15 +254,28 @@ class Controllerv3:
 
     def report_player_rank_order_tt(self):
         """ give all the player for one tournament in rank order"""
-        pass
+        tt = self.load_tt()
+        players = tt.tt_players
+        elo_order = sorted(players, key=lambda x: x["Elo"], reverse=True)
+        for elo in elo_order:
+            self.menu.player_list(elo)
+        self.report_menu()
 
     def report_all_rondes(self):
         """ give all the ronde in a tournament"""
-        pass
+        tt = self.load_tt()
+        rondes = tt.tournees_list
+        print(rondes)
+        self.report_menu()
 
     def report_all_match(self):
         """ give all matchs in a tournament"""
-        pass
+        tt = self.load_tt()
+        rondes = tt.tournees_list
+        print(" A finir")
+        for match in rondes:
+            print(" A finir")
+        self.report_menu()
 
     # --------------------- Game -----------------------------------------------
 

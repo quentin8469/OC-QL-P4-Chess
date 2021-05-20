@@ -59,7 +59,6 @@ class Menu:
         """ give the liste of the players"""
 
         print("---------------------------------")
-        print("doc_id:", player.doc_id)
         print("Last_name:", player["Last_name"])
         print("First_name:", player["First_name"])
         print("Birth_date:", player["Birth_date"])

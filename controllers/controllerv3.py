@@ -127,8 +127,6 @@ class Controllerv3:
             {"Tournament_players": plist}, self.tournamentquery.Tournament_name == tournoi.name)
         self.tournament_menu()
         
-
-
     # ----------------------- Player code --------------------------------------
     def player_menu(self):
         """ start the player menu"""
@@ -208,8 +206,6 @@ class Controllerv3:
         for play in player:
             self.menu.player_search(play)
             return player
-        
-        
 
     def players_list_for_tt(self):
         """ add player in players tt list"""
@@ -231,9 +227,10 @@ class Controllerv3:
         menu_list = [
             self.player_alpha_order,
             self.player_classement_order,
-            self.start_menu,
+            self.report_player_alpha_order_tt,
             self.start_menu,
             self.report_tt_list,
+            self.start_menu,
             self.start_menu,
             self.start_menu,
         ]
@@ -248,7 +245,12 @@ class Controllerv3:
 
     def report_player_alpha_order_tt(self):
         """ give all the player for one tournament in alphabetical order"""
-        pass
+        tt = self.load_tt()
+        players = tt.tt_players
+        alpha_order = sorted(players, key=lambda x: x["Last_name"])
+        for alpha in alpha_order:
+            self.menu.player_list(alpha)
+        self.report_menu()
 
     def report_player_rank_order_tt(self):
         """ give all the player for one tournament in rank order"""

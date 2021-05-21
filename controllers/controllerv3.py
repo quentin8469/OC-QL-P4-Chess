@@ -128,6 +128,16 @@ class Controllerv3:
             {"Tournament_players": plist}, self.tournamentquery.Tournament_name == tournoi.name)
         self.tournament_menu()
         
+    def add_round_bdd(self,round_list, tournoi):
+        """ Add round in tournament bdd"""
+        rlist =[]
+        for round in round_list:
+            ronde = round.serialized_rounds()
+            rlist.append(ronde)
+        self.tournament_table.update(
+            {"Tournament_tournees": rlist}, self.tournamentquery.Tournament_name == tournoi.name)
+        return rlist
+        
     # ----------------------- Player code --------------------------------------
     def player_menu(self):
         """ start the player menu"""
@@ -404,9 +414,10 @@ class Controllerv3:
                     p_score.append(score)
  
             rcount += 1
-        for round in round_list:
-            tournoi.add_tournees(round.serialized_rounds())
-        print(tournoi.tournees_list)
+        
+        rlist = self.add_round_bdd(round_list, tournoi)
+        for round in rlist:
+            tournoi.add_tournees(round)
         p_score.sort(key=lambda x: (x.score, x.elo), reverse=True)
         self.menu.end_tournament(p_score)
         self.start_menu()

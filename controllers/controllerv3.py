@@ -45,13 +45,12 @@ class Controllerv3:
         """ start the tournament menu"""
         self.menu.menu_tournament()
         input_choice = input()
-        input_check_list = ["1", "2", "3", "4","5"]
+        input_check_list = ["1", "2", "3", "4"]
         while input_choice not in input_check_list:
             input_choice = input()
         index_menu = input_check_list.index(input_choice)
         menu_list = [
             self.new_tt,
-            self.edit_tt,
             self.tt_list,
             self.add_players_in_tt,
             self.start_menu,
@@ -76,10 +75,6 @@ class Controllerv3:
         new_tournament = Tournament( name, location, st_date, e_date, rondes, tt_list, pl_list, ttc, description)
         self.tournament_table.insert(new_tournament.serialized_tournament())
         self.tournament_menu()
-
-    def edit_tt(self):
-        """ edit tournament """
-        pass
 
     def tt_list(self):
         """ creat the list of all tournament """
@@ -276,7 +271,8 @@ class Controllerv3:
         """ give all the ronde in a tournament"""
         tt = self.load_tt()
         rondes = tt.tournees_list
-        print(rondes)
+        for ronde in rondes:
+            self.menu.round_view(ronde)
         self.report_menu()
 
     def report_all_match(self):

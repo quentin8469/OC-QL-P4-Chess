@@ -55,3 +55,7 @@ class Tournament:
         """ add player in tt_players """
         
         self.tt_players.append(player)
+    
+    def add_tournees(self, rounds):
+        """ add all the rounds in tournnes_liste """
+        self.tournees_list.append(rounds)

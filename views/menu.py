@@ -86,10 +86,9 @@ class Menu:
         print("----------- Tournament Menu -----------")
         print("welcome, please select your action and press Enter")
         print("1.Create Tournament")
-        print("2.Edit Tournament")
-        print("3.List of Tournament")
-        print("4.Add player in Tournament")
-        print("5.Return to start menu")
+        print("2.List of Tournament")
+        print("3.Add player in Tournament")
+        print("4.Return to start menu")
         print("---------------------------------------")
 
     def new_tournament_name(self):
@@ -146,6 +145,19 @@ class Menu:
     def add_player_confirm(self):
         """ get the tournament name"""
         print("Confirme player ? y/n ")
+
+    def round_view(self, rounds):
+        """ view all rounds for a tournament"""
+        print("---------------------------------")
+        print("Ronde:", rounds["Ronde"])
+        print("Start_time:", rounds["Start_time"])
+        print("End_time:", rounds["End_time"])
+        print("Matchs:", rounds["Matchs"])
+        print("---------------------------------")
+    
+    def match_view(self, rounds):
+       """ viaw all matchs for a tournament """
+       pass
     # ---------------------------- view report ---------------------------------
 
     def menu_report(self):
@@ -166,7 +178,7 @@ class Menu:
         print("--------------------------------------")
 
     # ----------------------- view Round ---------------------------------------
-    def start_view(self):
+    def tcontrol_view(self):
         """ start tournament view """
         print("Select tournament time controle: 1- Bullet, 2-Blitz, 3-")
 

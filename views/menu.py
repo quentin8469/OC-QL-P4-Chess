@@ -126,7 +126,7 @@ class Menu:
         print("Tournament_Tcontrol:", tournament["Tournament_Tcontrol"])
         print("Tournament_description:", tournament["Tournament_description"])
         print("---------------------------------")
-    
+
     def tournament_load(self, tournament):
         """ give the liste of the tournament"""
 
@@ -141,7 +141,7 @@ class Menu:
         print("Tournament_Tcontrol:", tournament.time_control)
         print("Tournament_description:", tournament.description)
         print("--------------------------------------------")
-        
+
     def add_player_confirm(self):
         """ get the tournament name"""
         print("Confirme player ? y/n ")
@@ -154,15 +154,17 @@ class Menu:
         print("End_time:", rounds["End_time"])
         print("Matchs:", rounds["Matchs"])
         print("---------------------------------")
-    
-    def match_view(self, rounds):
-       """ viaw all matchs for a tournament """
-       pass
+
+    def match_view(self, match):
+        """ viaw all matchs for a tournament """
+
+        print("Matchs:", match["Matchs"])
+
     # ---------------------------- view report ---------------------------------
 
     def menu_report(self):
         """ print the report menu """
-        
+
         print("------------ Report Menu -------------")
         print("welcome, please select your action and press Enter")
         print("List of all actors:")
@@ -206,7 +208,7 @@ class Menu:
 
     def new_round(self):
         """ view to choose to start a other round"""
-        
+
         print("Start the round? y/n")
 
     def other_round(self, player):
@@ -238,8 +240,8 @@ class Menu:
             )
             print("Draw: [3)")
         print("The round is finish, enter results:")
-    
-    def end_tournament(self,player):
+
+    def end_tournament(self, player):
         """ view whit the playersresults of the tournament"""
         print("----- End of the tournament - players classement-----")
         for i in range(0, len(player), 2):
@@ -253,5 +255,3 @@ class Menu:
                 player[i + 1].score,
             )
         print("-------------------------------------------------------")
-        
-        

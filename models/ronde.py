@@ -2,28 +2,29 @@
 # -*- coding: utf-8 -*-
 #
 
+
 class Ronde:
     """
-    doc string
+    Rondes informations
     """
-    #ROUND_MAX = 4
+
     def __init__(self, name, lmatch):
-        """ docting """
+        """ initialisation of a ronde """
         self.name = name
         self.sttime = ""
         self.endtime = ""
         self.lmatch = lmatch
-        
-        
+
     def serialized_rounds(self):
         """" serialization for save in TinyDB """
         serialized_rounds = {
-            'Ronde': self.name, 
-            'Start_time': self.sttime,
-            'End_time': self.endtime,
-            'Matchs': self.lmatch,
+            "Ronde": self.name,
+            "Start_time": self.sttime,
+            "End_time": self.endtime,
+            "Matchs": self.lmatch,
         }
         return serialized_rounds
+
     '''    
     @classmethod
     def deserializeplayer(cls, rondes):

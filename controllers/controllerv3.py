@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from models.joueur import Player
 from models.tournoi import Tournament
+from models.ronde import Ronde
 from tinydb import TinyDB, Query
 from views.menu import Menu
 
@@ -272,9 +273,9 @@ class Controllerv3:
         """ give all matchs in a tournament"""
         tt = self.load_tt()
         rondes = tt.tournees_list
-        print(" A finir")
-        for match in rondes:
-            print(" A finir")
+        for matchs in rondes:
+            
+            print(matchs['Matchs'])
         self.report_menu()
 
     # --------------------- Game -----------------------------------------------
@@ -294,6 +295,7 @@ class Controllerv3:
         """ manage the scoring of the first round """
 
         p_score = []
+        round = []
         self.menu.f_round(middle_one, middle_two)
         self.menu.new_round()
         start = input()
@@ -310,27 +312,33 @@ class Controllerv3:
                     choice = input()
                 if choice == "1":
                     middle_one[0].score += int(1)
+                    match = ([middle_one[0].lastname,middle_one[0].score], [middle_two[0].lastname, middle_two[0].score])
+                    round.append(match)
                     p_score.append(middle_one.pop(0))
                     p_score.append(middle_two.pop(0))                    
                 if choice == "2":
                     middle_two[0].score += int(1)
+                    match = ([middle_one[0].lastname,middle_one[0].score], [middle_two[0].lastname, middle_two[0].score])
+                    round.append(match)
                     p_score.append(middle_one.pop(0))
                     p_score.append(middle_two.pop(0))                    
                 if choice == "3":
                     middle_one[0].score += float(0.5)
                     middle_two[0].score += float(0.5)
+                    match = ([middle_one[0].lastname,middle_one[0].score], [middle_two[0].lastname, middle_two[0].score])
+                    round.append(match)
                     p_score.append(middle_one.pop(0))
                     p_score.append(middle_two.pop(0))
-                pcount += 1
-                
+                pcount += 1        
         if start == "n":
             self.start_menu()
-        return p_score
+        return p_score, round
 
     def next_round_by_score(self, next_pscore):
         """ tri de la liste de joueur celon le score """
 
         new_player_score_list = []
+        round = []
         next_pscore.sort(key=lambda x: (x.score, x.elo), reverse=True)
         self.menu.other_round(next_pscore)
         self.menu.new_round()
@@ -348,12 +356,16 @@ class Controllerv3:
                     choice = input()
                 if choice == "1":
                     next_pscore[0].score += int(1)
+                    match = ([next_pscore[0].lastname, next_pscore[0].score], [next_pscore[1].lastname, next_pscore[1].score])
+                    round.append(match)
                     new_player_score_list.append(next_pscore[0])
                     new_player_score_list.append(next_pscore[1])
                     next_pscore.pop(0)
                     next_pscore.pop(0)
                 if choice == "2":
                     next_pscore[1].score += int(1)
+                    match = ([next_pscore[0].lastname, next_pscore[0].score], [next_pscore[1].lastname, next_pscore[1].score])
+                    round.append(match)
                     new_player_score_list.append(next_pscore[0])
                     new_player_score_list.append(next_pscore[1])
                     next_pscore.pop(0)
@@ -361,6 +373,8 @@ class Controllerv3:
                 if choice == "3":
                     next_pscore[0].score += float(0.5)
                     next_pscore[1].score += float(0.5)
+                    match = ([next_pscore[0].lastname, next_pscore[0].score], [next_pscore[1].lastname, next_pscore[1].score])
+                    round.append(match)
                     new_player_score_list.append(next_pscore[0])
                     new_player_score_list.append(next_pscore[1])
                     next_pscore.pop(0)
@@ -368,26 +382,31 @@ class Controllerv3:
                 pcount += 1
         if start == "n":
             self.start_menu()
-        return new_player_score_list
+        return new_player_score_list, round
 
     def game(self):
         """ Run chess game"""
         tournoi = self.load_tt()
         p_score =[]
+        round_list = []
         rcount = 0     
         while rcount < 4:
             if rcount < 1:
                 r1_order, r2_order = self.first_round_by_elo(tournoi)
-                scores = self.scoring_first_round(r1_order, r2_order)
+                scores, round1 = self.scoring_first_round(r1_order, r2_order)
+                round_list.append(Ronde(rcount+1,round1))
                 for score in scores:
                     p_score.append(score)
- 
             else:
-                other_round = self.next_round_by_score(p_score)
+                other_round, round = self.next_round_by_score(p_score)
+                round_list.append(Ronde(rcount+1,round))
                 for score in other_round:
                     p_score.append(score)
  
-            rcount += 1    
+            rcount += 1
+        for round in round_list:
+            tournoi.add_tournees(round.serialized_rounds())
+        print(tournoi.tournees_list)
         p_score.sort(key=lambda x: (x.score, x.elo), reverse=True)
         self.menu.end_tournament(p_score)
         self.start_menu()

@@ -35,4 +35,10 @@ $ python app.py`
 Créer un rapport flake8 :
 `flake8 Chess_tournament --format=html --htmldir=flake-report --max-line-lengt=119'
 
+Sur Windows : 
+$ git clone https://github.com/VictorTherache/P4_chess_tournament.git
+$ cd P4_chess_tournament
+$ pip3 install -r requirements.txt 
+$ cd Chess_tournament
+$ py main.py
 

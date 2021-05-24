@@ -23,13 +23,13 @@ $ source venv/scripts/activate
 $ pip3 install -r requirements.txt   
 $ py app.py
 
-Sous linux/Mac :  
+Sous linux/Mac :      
 
-$ git clone https://github.com/quentin8469/OC-QL-P4-Chess.git
-$ cd OC-QL-P4-Chess
-$ source env/bin/activate
-$ pip3 install -r requirements.txt 
-$ python app.py
+$ git clone https://github.com/quentin8469/OC-QL-P4-Chess.git    
+$ cd OC-QL-P4-Chess    
+$ source env/bin/activate    
+$ pip3 install -r requirements.txt    
+$ python app.py    
 
 Créer un rapport flake8 :  
 

@@ -17,18 +17,11 @@ Pour installer le programme via un terminal :
 Sous Windows :
 `
 $ git clone https://github.com/quentin8469/OC-QL-P4-Chess.git  
-
 $ cd OC-QL-P4-Chess  
-
 $ source venv/scripts/activate  
-
 $ pip3 install -r requirements.txt  
-
 $ cd Chess_tournament  
-
-$ py app.py  
-
-`
+$ py app.py `
 
 Sous linux/Mac :
 `

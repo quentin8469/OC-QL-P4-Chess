@@ -14,8 +14,7 @@ Ce programme permet de gérer un tournoi d'échecs de 8 joueurs avec la créatio
 # 3.Installation
 ***
 Pour installer le programme via un terminal :
-Sous Windows :
-`
+`Sous Windows :
 $ git clone https://github.com/quentin8469/OC-QL-P4-Chess.git  
 $ cd OC-QL-P4-Chess  
 $ source venv/scripts/activate  

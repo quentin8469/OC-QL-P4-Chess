@@ -33,4 +33,4 @@ $ python app.py
 
 Créer un rapport flake8 :  
 
-`flake8 Chess_tournament --format=html --htmldir=flake-report --max-line-lengt=119'
+`flake8 Chess_tournament --format=html --htmldir=flake-report --max-line-lengt=119`

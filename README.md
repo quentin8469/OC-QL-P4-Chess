@@ -15,30 +15,23 @@ Ce programme permet de gérer un tournoi d'échecs de 8 joueurs avec la créatio
 ***
 Pour installer le programme via un terminal :  
 
-`Sous Windows :  
+Sous Windows :  
 
 $ git clone https://github.com/quentin8469/OC-QL-P4-Chess.git    
 $ cd OC-QL-P4-Chess   
 $ source venv/scripts/activate  
 $ pip3 install -r requirements.txt  
 $ cd Chess_tournament  
-$ py app.py`
+$ py app.py
 
-Sous linux/Mac :
-`
+Sous linux/Mac :  
+
 $ git clone https://github.com/quentin8469/OC-QL-P4-Chess.git
 $ cd OC-QL-P4-Chess
 $ source env/bin/activate
 $ pip3 install -r requirements.txt 
-$ python app.py`
+$ python app.py
 
-Créer un rapport flake8 :
+Créer un rapport flake8 :  
+
 `flake8 Chess_tournament --format=html --htmldir=flake-report --max-line-lengt=119'
-
-Sur Windows : 
-$ git clone https://github.com/VictorTherache/P4_chess_tournament.git
-$ cd P4_chess_tournament
-$ pip3 install -r requirements.txt 
-$ cd Chess_tournament
-$ py main.py
-

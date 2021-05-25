@@ -1,6 +1,4 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-#
+#!/usr/bin/env/python3
 
 
 class Ronde:
@@ -8,12 +6,12 @@ class Ronde:
     Rondes informations
     """
 
-    def __init__(self, name, lmatch):
+    def __init__(self, name, lmatch, sttime="", endtime=""):
         """ initialisation of a ronde """
         self.name = name
-        self.sttime = ""
-        self.endtime = ""
         self.lmatch = lmatch
+        self.sttime = sttime
+        self.endtime = endtime
 
     def serialized_rounds(self):
         """" serialization for save in TinyDB """
@@ -25,14 +23,12 @@ class Ronde:
         }
         return serialized_rounds
 
-    '''    
     @classmethod
     def deserializeplayer(cls, rondes):
         """ deserialized rondes from bdd"""
-        name = rondes['Ronde']
-        "" = rondes ['Start_time']
-        "" = rondes ['End_time']
-        lmatch = rondes ['Matchs']
-        rounds = Ronde(name, lmatch)
+        name = rondes["Ronde"]
+        lmatch = rondes["Matchs"]
+        sttime = rondes["Start_time"]
+        endtime = rondes["End_time"]
+        rounds = Ronde(name, lmatch, sttime, endtime)
         return rounds
-    '''

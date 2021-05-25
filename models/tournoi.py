@@ -57,8 +57,7 @@ class Tournament:
         ttc = tt["Tournament_Tcontrol"]
         description = tt["Tournament_description"]
         tournament = Tournament(
-            name, location, st_date, e_date, rondes, tt_list, pl_list, ttc,
-                                                                    description
+            name, location, st_date, e_date, rondes, tt_list, pl_list, ttc, description
         )
         return tournament
 

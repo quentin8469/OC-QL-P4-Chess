@@ -34,6 +34,10 @@ class Menu:
         print("Score:", player["Score"])
         print("---------------------------------")
 
+    def new_tournament_name(self):
+        """ get the tournament name"""
+        print("Enter Tournament name: ")
+
     def tournament_list(self, tournament):
         """ give the liste of the tournament"""
 

@@ -1,5 +1,4 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
+#!/usr/bin/env/python3
 
 
 class Menu:
@@ -11,7 +10,6 @@ class Menu:
         """ docting """
         pass
 
-    # -------------------view start---------------------------------------------
     def menu_start(self):
         """ print the start menu """
         print("--------- Start Menu ---------")
@@ -24,37 +22,6 @@ class Menu:
         print("Choose your action please")
         print("------------------------------")
 
-    # --------------------- view player-----------------------------------------
-    def menu_player(self):
-        """ print the Player menu """
-        print("--------- Player Menu ---------")
-        print("welcome, please select your action and press Enter")
-        print("1.New player")
-        print("2.Edit player Elo")
-        print("3.Player list")
-        print("4.Return to start menu")
-        print("-------------------------------")
-
-    def new_player_lname(self):
-        """ get the player last name """
-        print("Enter player Last Name: ")
-
-    def new_player_fname(self):
-        """ get the player firt name """
-        print("Enter player First Name: ")
-
-    def new_player_bdate(self):
-        """ get the player Birth date """
-        print("Enter player Birth date: dd/mm/yyyy")
-
-    def new_player_gender(self):
-        """ get the player gender """
-        print("Enter player Gender: Male /Femelle / Autre")
-
-    def new_player_elo(self):
-        """ get the player Elo """
-        print("Enter player Elo number: ")
-
     def player_list(self, player):
         """ give the liste of the players"""
 
@@ -66,50 +33,6 @@ class Menu:
         print("Elo:", player["Elo"])
         print("Score:", player["Score"])
         print("---------------------------------")
-
-    def player_search(self, player):
-        """ give the search of the players"""
-
-        print("-------Your research result------------")
-        print("doc_id:", player.doc_id)
-        print("Last_name:", player["Last_name"])
-        print("First_name:", player["First_name"])
-        print("Birth_date:", player["Birth_date"])
-        print("Gender:", player["Gender"])
-        print("Elo:", player["Elo"])
-        print("Score:", player["Score"])
-        print("---------------------------------------")
-
-    # -------------------------- view Tournament -------------------------------
-    def menu_tournament(self):
-        """ print the Tournament menu """
-        print("----------- Tournament Menu -----------")
-        print("welcome, please select your action and press Enter")
-        print("1.Create Tournament")
-        print("2.List of Tournament")
-        print("3.Add player in Tournament")
-        print("4.Return to start menu")
-        print("---------------------------------------")
-
-    def new_tournament_name(self):
-        """ get the tournament name"""
-        print("Enter Tournament name: ")
-
-    def new_tournament_location(self):
-        """ get the tournament location"""
-        print("Enter Tournament location: ")
-
-    def new_tournament_date(self):
-        """ get the tournament date"""
-        print("Enter Tournament date: dd/mm/yyyy ")
-
-    def new_tournament_timer(self):
-        """ get the tournament timer"""
-        print("Tournament timer: ")
-
-    def new_tournament_description(self):
-        """ get the tournament location"""
-        print("Enter Tournament description: ")
 
     def tournament_list(self, tournament):
         """ give the liste of the tournament"""
@@ -126,6 +49,10 @@ class Menu:
         print("Tournament_Tcontrol:", tournament["Tournament_Tcontrol"])
         print("Tournament_description:", tournament["Tournament_description"])
         print("---------------------------------")
+
+    def error_tt_name(self):
+        """ ask the correct player last name """
+        print("Please enter the correct tournament name: ")
 
     def tournament_load(self, tournament):
         """ give the liste of the tournament"""
@@ -146,6 +73,10 @@ class Menu:
         """ get the tournament name"""
         print("Confirme player ? y/n ")
 
+    def tt_add_player(self):
+        """ get the tournament name"""
+        print("Please add player in your tournament")
+
     def round_view(self, rounds):
         """ view all rounds for a tournament"""
         print("---------------------------------")
@@ -159,8 +90,6 @@ class Menu:
         """ viaw all matchs for a tournament """
 
         print("Matchs:", match["Matchs"])
-
-    # ---------------------------- view report ---------------------------------
 
     def menu_report(self):
         """ print the report menu """
@@ -179,7 +108,6 @@ class Menu:
         print("8.Return to start menu")
         print("--------------------------------------")
 
-    # ----------------------- view Round ---------------------------------------
     def tcontrol_view(self):
         """ start tournament view """
         print("Select tournament time controle: 1- Bullet, 2-Blitz, 3-")

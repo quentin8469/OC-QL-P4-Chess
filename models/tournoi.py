@@ -1,5 +1,4 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
+#!/usr/bin/env/python3
 
 
 class Tournament:
@@ -57,16 +56,14 @@ class Tournament:
         pl_list = tt["Tournament_players"]
         ttc = tt["Tournament_Tcontrol"]
         description = tt["Tournament_description"]
-
         tournament = Tournament(
-            name, location, st_date, e_date, rondes, tt_list, pl_list, ttc, description
+            name, location, st_date, e_date, rondes, tt_list, pl_list, ttc,
+                                                                    description
         )
-
         return tournament
 
     def add_player(self, player):
         """ add player in tt_players """
-
         self.tt_players.append(player)
 
     def add_tournees(self, rounds):

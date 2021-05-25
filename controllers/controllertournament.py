@@ -53,8 +53,7 @@ class TournamentController:
         self.ttviews.new_tournament_description()
         description = input()
         new_tournament = Tournament(
-            name, location, st_date, e_date, rondes, tt_list, pl_list, ttc, 
-			description
+            name, location, st_date, e_date, rondes, tt_list, pl_list, ttc, description
         )
         self.tournament_table.insert(new_tournament.serialized_tournament())
         self.tournament_menu()

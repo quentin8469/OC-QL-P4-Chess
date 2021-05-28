@@ -19,7 +19,7 @@ Sous Windows :
 
 $ git clone https://github.com/quentin8469/OC-QL-P4-Chess.git    
 $ cd OC-QL-P4-Chess   
-$ source venv/scripts/activate  
+$ .venv/scripts/activate  
 $ pip3 install -r requirements.txt   
 $ py app.py
 

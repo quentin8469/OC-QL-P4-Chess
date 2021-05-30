@@ -254,12 +254,12 @@ class ControllerChess:
             self.menu.add_player_confirm()
             confirmation = input()
             if confirmation == "y":
-                if players != None:
+                if players is not None:
                     for player in players:
                         tournoi.add_player(Player.deserializeplayer(player))
                         self.menu.tournament_load(tournoi)
                         pcount += 1
-                if players == None:
+                if players is None:
                     self.menu.tournament_load(tournoi)
                     pcount += 0
             else:

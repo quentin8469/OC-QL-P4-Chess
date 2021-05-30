@@ -6,9 +6,6 @@ class Menu:
     In this class we find all the views
     """
 
-    def __init__(self):
-        """ docting """
-        pass
 
     def menu_start(self):
         """ print the start menu """
@@ -24,7 +21,6 @@ class Menu:
 
     def player_list(self, player):
         """ give the liste of the players"""
-
         print("---------------------------------")
         print("Last_name:", player["Last_name"])
         print("First_name:", player["First_name"])
@@ -40,7 +36,6 @@ class Menu:
 
     def tournament_list(self, tournament):
         """ give the liste of the tournament"""
-
         print("-------- Liste des tournois --------")
         print("doc_id:", tournament.doc_id)
         print("Tournament_name:", tournament["Tournament_name"])
@@ -60,7 +55,6 @@ class Menu:
 
     def tournament_load(self, tournament):
         """ give the liste of the tournament"""
-
         print("-------- Données du tournoi chargé ---------")
         print("Tournament_name:", tournament.name)
         print("Tournament_location:", tournament.location)
@@ -92,12 +86,10 @@ class Menu:
 
     def match_view(self, match):
         """ viaw all matchs for a tournament """
-
         print("Matchs:", match["Matchs"])
 
     def menu_report(self):
         """ print the report menu """
-
         print("------------ Report Menu -------------")
         print("welcome, please select your action and press Enter")
         print("List of all actors:")
@@ -140,7 +132,6 @@ class Menu:
 
     def new_round(self):
         """ view to choose to start a other round"""
-
         print("Start the round? y/n")
 
     def other_round(self, player):

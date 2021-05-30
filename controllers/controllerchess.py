@@ -297,7 +297,7 @@ class ControllerChess:
             p_score = []
             round_list = []
             rcount = 0
-            while rcount < 4:
+            while rcount < tournoi.rondes:
                 if rcount < 1:
                     sttime = time.strftime('%H:%M:%S')
                     r1_order, r2_order = self.first_round_by_elo(tournoi)

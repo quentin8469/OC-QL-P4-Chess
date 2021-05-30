@@ -15,9 +15,9 @@ class TournamentController:
     def __init__(self):
         """ constructor controller tt"""
         self.ttviews = TournamentViews()
-        self.tournamentdb = TinyDB("tournament3.json")
+        self.tournamentdb = TinyDB("tournament.json")
         self.tournamentquery = Query()
-        self.tournament_table = self.tournamentdb.table("tournament3")
+        self.tournament_table = self.tournamentdb.table("tournament")
 
     def tournament_menu(self):
         """ start the tournament menu"""
@@ -49,7 +49,8 @@ class TournamentController:
         rondes = 4
         tt_list = ()
         pl_list = []
-        ttc = []
+        self.ttviews.new_tournament_timer()
+        ttc = input()
         self.ttviews.new_tournament_description()
         description = input()
         new_tournament = Tournament(
@@ -67,7 +68,6 @@ class TournamentController:
 
     def load_tt(self):
         """ load a tournament since a json """
-
         tt = []
         self.ttviews.new_tournament_name()
         Tournament_name = input()
@@ -104,7 +104,6 @@ class TournamentController:
                 else:
                     self.ttviews.tournament_load(tournoi)
                     pcount += 0
-
             plist = []
             for players in tournoi.tt_players:
                 player = players.serialized_player()

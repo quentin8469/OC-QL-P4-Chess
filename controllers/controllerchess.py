@@ -1,5 +1,6 @@
 #!/usr/bin/env/python3
 
+import time
 from models.tournoi import Tournament
 from models.joueur import Player
 from models.ronde import Ronde
@@ -7,7 +8,7 @@ from views.menu import Menu
 
 
 class ControllerChess:
-    """ doc string """
+    """ This class control the chess game """
 
     def __init__(self, playercontroller, tournoicontroller):
         """ constructor initialisation """
@@ -294,14 +295,18 @@ class ControllerChess:
             rcount = 0
             while rcount < 4:
                 if rcount < 1:
+                    sttime = time.strftime('%H:%M:%S')
                     r1_order, r2_order = self.first_round_by_elo(tournoi)
                     scores, round1 = self.scoring_first_round(r1_order, r2_order)
-                    round_list.append(Ronde(rcount + 1, round1))
+                    endtime = time.strftime('%H:%M:%S')
+                    round_list.append(Ronde(rcount + 1, round1, sttime, endtime))
                     for score in scores:
                         p_score.append(score)
                 else:
+                    sttime = time.strftime('%H:%M:%S')
                     other_round, round = self.next_round_by_score(p_score)
-                    round_list.append(Ronde(rcount + 1, round))
+                    endtime = time.strftime('%H:%M:%S')
+                    round_list.append(Ronde(rcount + 1, round, sttime, endtime))
                     for score in other_round:
                         p_score.append(score)
                 rcount += 1

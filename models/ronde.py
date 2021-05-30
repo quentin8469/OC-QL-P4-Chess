@@ -6,7 +6,7 @@ class Ronde:
     Rondes informations
     """
 
-    def __init__(self, name, lmatch, sttime="", endtime=""):
+    def __init__(self, name, lmatch, sttime, endtime):
         """ initialisation of a ronde """
         self.name = name
         self.lmatch = lmatch

@@ -56,12 +56,17 @@ class PlayerController:
         """  edit player Elo"""
         self.playerviews.new_player_lname()
         input_player = input()
-        self.playerviews.new_player_elo()
-        input_elo = int(input())
-        self.player_table.update(
-            {"Elo": input_elo}, self.playerquery.Last_name == f"{input_player}"
-        )
-        self.player_menu()
+        self.playerviews.change_player_elo()
+        try:
+            input_elo = int(input())
+        except ValueError:
+            self.playerviews.error_player_elo()
+        else:
+            self.player_table.update(
+                {"Elo": input_elo}, self.playerquery.Last_name == f"{input_player}"
+            )
+        finally:
+            self.player_menu()
 
     def players_list(self):
         """ Create a list of all players"""

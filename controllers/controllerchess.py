@@ -254,10 +254,14 @@ class ControllerChess:
             self.menu.add_player_confirm()
             confirmation = input()
             if confirmation == "y":
-                for player in players:
-                    tournoi.add_player(Player.deserializeplayer(player))
+                if players is not None:
+                    for player in players:
+                        tournoi.add_player(Player.deserializeplayer(player))
+                        self.menu.tournament_load(tournoi)
+                        pcount += 1
+                if players is None:
                     self.menu.tournament_load(tournoi)
-                    pcount += 1
+                    pcount += 0
             else:
                 self.menu.tournament_load(tournoi)
                 pcount += 0
@@ -293,7 +297,7 @@ class ControllerChess:
             p_score = []
             round_list = []
             rcount = 0
-            while rcount < 4:
+            while rcount < tournoi.rondes:
                 if rcount < 1:
                     sttime = time.strftime('%H:%M:%S')
                     r1_order, r2_order = self.first_round_by_elo(tournoi)

@@ -23,16 +23,15 @@ class TournamentController:
         """ start the tournament menu"""
         self.ttviews.menu_tournament()
         input_choice = input()
-        input_check_list = ["1", "2", "3", "4"]
+        input_check_list = ["1", "2", "3"]
         while input_choice not in input_check_list:
             input_choice = input()
         index_menu = input_check_list.index(input_choice)
         menu_list = [
             self.new_tt,
             self.tt_list,
-            self.load_tt,
         ]
-        if index_menu == 3:
+        if index_menu == 2:
             pass
         else:
             menu_list[index_menu]()

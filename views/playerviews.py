@@ -35,11 +35,11 @@ class PlayerViews:
     def new_player_elo(self):
         """ get the player Elo """
         print("Enter player Elo number: ")
-    
+
     def change_player_elo(self):
         """ get the new player Elo """
         print("Enter the new player Elo number: ")
-        
+
     def error_player_elo(self):
         """ get the new player Elo """
         print("Not don't give en good Elo number")

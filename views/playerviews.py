@@ -6,9 +6,6 @@ class PlayerViews:
     In this class we find all the views
     """
 
-    def __init__(self):
-        """ docting """
-        pass
 
     def menu_player(self):
         """ print the Player menu """
@@ -46,7 +43,6 @@ class PlayerViews:
 
     def player_list(self, player):
         """ give the liste of the players"""
-
         print("---------------------------------")
         print("Last_name:", player["Last_name"])
         print("First_name:", player["First_name"])
@@ -58,7 +54,6 @@ class PlayerViews:
 
     def player_search(self, player):
         """ give the search of the players"""
-
         print("-------Your research result------------")
         print("doc_id:", player.doc_id)
         print("Last_name:", player["Last_name"])

@@ -24,13 +24,13 @@ $ pip3 install -r requirements.txt
 $ python app.py
 ```
 Sous linux/Mac :      
-
+```sh
 $ git clone https://github.com/quentin8469/OC-QL-P4-Chess.git    
 $ python3 -m venv env    
 $ source env/bin/activate    
 $ pip3 install -r requirements.txt    
 $ python app.py    
-
+```
 Créer un rapport flake8 :  
 
 `flake8 --exclude=env,venv --format=html --htmldir=flake8_report --max-line-lengt=119`

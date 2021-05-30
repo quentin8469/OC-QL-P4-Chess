@@ -14,9 +14,9 @@ class PlayerController:
     def __init__(self):
         """ constructor controller player"""
         self.playerviews = PlayerViews()
-        self.playerdb = TinyDB("players1.json")
+        self.playerdb = TinyDB("players.json")
         self.playerquery = Query()
-        self.player_table = self.playerdb.table("players1")
+        self.player_table = self.playerdb.table("players")
 
     def player_menu(self):
         """ start the player menu"""
@@ -57,7 +57,7 @@ class PlayerController:
         self.playerviews.new_player_lname()
         input_player = input()
         self.playerviews.new_player_elo()
-        input_elo = input()
+        input_elo = int(input())
         self.player_table.update(
             {"Elo": input_elo}, self.playerquery.Last_name == f"{input_player}"
         )
@@ -92,4 +92,5 @@ class PlayerController:
         if len(player) == 1:
             return player
         else:
-            self.search_player()
+            self.playerviews.error_add_player_lname()
+        self.search_player

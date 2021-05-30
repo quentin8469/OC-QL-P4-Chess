@@ -104,9 +104,6 @@ class Menu:
         print("8.Return to start menu")
         print("--------------------------------------")
 
-    def tcontrol_view(self):
-        """ start tournament view """
-        print("Select tournament time controle: 1- Bullet, 2-Blitz, 3-")
 
     def f_round(self, p, c):
         """ give the view player vs player """

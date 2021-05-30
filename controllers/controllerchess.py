@@ -7,7 +7,7 @@ from views.menu import Menu
 
 
 class ControllerChess:
-    """ doc string """
+    """ This class control the chess game """
 
     def __init__(self, playercontroller, tournoicontroller):
         """ constructor initialisation """
@@ -55,12 +55,14 @@ class ControllerChess:
         menu_list[menu]()
 
     def report_player_alpha_order(self):
+        """ give the list of players in alpha order """
         alpha_order = self.plc.player_alpha_order()
         for alpha in alpha_order:
             self.menu.player_list(alpha)
         self.report_menu()
 
     def report_player_classement_order(self):
+        """ give the list of players in classement order """
         classe_order = self.plc.player_classement_order()
         for classe in classe_order:
             self.menu.player_list(classe)
@@ -109,7 +111,6 @@ class ControllerChess:
 
     def load_tt(self):
         """ load a tournament since a json """
-
         tt = []
         self.menu.new_tournament_name()
         Tournament_name = input()
@@ -126,7 +127,6 @@ class ControllerChess:
 
     def first_round_by_elo(self, tournoi):
         """ tri de la p_list selon le elo de chaque joueur"""
-
         p_elo = []
         for player in tournoi.tt_players:
             p_elo.append(Player.deserializeplayer(player))
@@ -137,7 +137,6 @@ class ControllerChess:
 
     def scoring_first_round(self, middle_one, middle_two):
         """ manage the scoring of the first round """
-
         p_score = []
         round = []
         self.menu.f_round(middle_one, middle_two)
@@ -189,7 +188,6 @@ class ControllerChess:
 
     def next_round_by_score(self, next_pscore):
         """ tri de la liste de joueur celon le score """
-
         new_player_score_list = []
         round = []
         next_pscore.sort(key=lambda x: (x.score, x.elo), reverse=True)
@@ -249,7 +247,6 @@ class ControllerChess:
     def add_players_in_tt(self, tournois):
         """ add a list of player for the tournament"""
         tournoi = tournois
-
         pcount = 0
         while pcount < 8:
             players = self.plc.search_player()
@@ -263,7 +260,6 @@ class ControllerChess:
             else:
                 self.menu.tournament_load(tournoi)
                 pcount += 0
-
         plist = []
         for players in tournoi.tt_players:
             player = players.serialized_player()
@@ -308,9 +304,7 @@ class ControllerChess:
                     round_list.append(Ronde(rcount + 1, round))
                     for score in other_round:
                         p_score.append(score)
-
                 rcount += 1
-
             rlist = self.add_round_bdd(round_list, tournoi)
             for round in rlist:
                 tournoi.add_tournees(round)

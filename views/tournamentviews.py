@@ -12,8 +12,7 @@ class TournamentViews:
         print("welcome, please select your action and press Enter")
         print("1.Create Tournament")
         print("2.List of Tournament")
-        print("3.Add player in Tournament")
-        print("4.Return to start menu")
+        print("3.Return to start menu")
         print("---------------------------------------")
 
     def new_tournament_name(self):

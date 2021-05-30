@@ -40,6 +40,10 @@ class PlayerViews:
     def error_player_lname(self):
         """ ask the correct player last name """
         print("Please enter the correct player Last name: ")
+    
+    def error_add_player_lname(self):
+        """ ask the correct player last name """
+        print("Player don't exist, please select 'n' for the confirmation")
 
     def player_list(self, player):
         """ give the liste of the players"""

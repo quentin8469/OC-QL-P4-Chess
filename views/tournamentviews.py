@@ -6,9 +6,6 @@ class TournamentViews:
     In this class we find all the views
     """
 
-    def __init__(self):
-        """ docting """
-        pass
 
     def menu_tournament(self):
         """ print the Tournament menu """
@@ -34,7 +31,10 @@ class TournamentViews:
 
     def new_tournament_timer(self):
         """ get the tournament timer"""
-        print("Tournament timer: ")
+        print("Write Tournament type timer: ")
+        print("Bullet")
+        print("Blitz")
+        print("Coup rapide")
 
     def new_tournament_description(self):
         """ get the tournament location"""
@@ -42,7 +42,6 @@ class TournamentViews:
 
     def tournament_list(self, tournament):
         """ give the liste of the tournament"""
-
         print("-------- Liste des tournois --------")
         print("doc_id:", tournament.doc_id)
         print("Tournament_name:", tournament["Tournament_name"])
@@ -58,7 +57,6 @@ class TournamentViews:
 
     def tournament_load(self, tournament):
         """ give the liste of the tournament"""
-
         print("-------- Données du tournoi chargé ---------")
         print("Tournament_name:", tournament.name)
         print("Tournament_location:", tournament.location)

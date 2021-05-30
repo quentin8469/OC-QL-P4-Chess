@@ -6,7 +6,6 @@ class TournamentViews:
     In this class we find all the views
     """
 
-
     def menu_tournament(self):
         """ print the Tournament menu """
         print("----------- Tournament Menu -----------")

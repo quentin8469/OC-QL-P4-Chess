@@ -98,4 +98,3 @@ class PlayerController:
             return player[0]
         else:
             self.playerviews.error_add_player_lname()
-

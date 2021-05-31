@@ -245,26 +245,18 @@ class ControllerChess:
             self.start_menu()
         return new_player_score_list, round
 
-    def add_players_in_tt(self, tournois):
+    def add_players_in_tt(self, tournoi):
         """ add a list of player for the tournament"""
-        tournoi = tournois
         pcount = 0
         while pcount < 8:
-            players = self.plc.search_player()
+            player = self.plc.search_player()
             self.menu.add_player_confirm()
             confirmation = input()
             if confirmation == "y":
-                if players is not None:
-                    for player in players:
-                        tournoi.add_player(Player.deserializeplayer(player))
-                        self.menu.tournament_load(tournoi)
-                        pcount += 1
-                if players is None:
-                    self.menu.tournament_load(tournoi)
-                    pcount += 0
-            else:
-                self.menu.tournament_load(tournoi)
-                pcount += 0
+                if player:
+                    tournoi.add_player(Player.deserializeplayer(player))
+                    pcount += 1
+            self.menu.tournament_load(tournoi)
         plist = []
         for players in tournoi.tt_players:
             player = players.serialized_player()

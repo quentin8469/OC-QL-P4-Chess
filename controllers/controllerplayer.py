@@ -95,7 +95,7 @@ class PlayerController:
             self.playerquery.Last_name == f"{input_player}"
         )
         if len(player) == 1:
-            return player
+            return player[0]
         else:
             self.playerviews.error_add_player_lname()
-        self.search_player
+

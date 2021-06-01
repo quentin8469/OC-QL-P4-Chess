@@ -247,16 +247,14 @@ class ControllerChess:
 
     def add_players_in_tt(self, tournoi):
         """ add a list of player for the tournament"""
-        pcount = 0
-        while pcount < 8:
+        self.menu.tournament_load(tournoi)
+        while len(tournoi.tt_players) < 8:
             player = self.plc.search_player()
             self.menu.add_player_confirm()
             confirmation = input()
             if confirmation == "y":
                 if player:
                     tournoi.add_player(Player.deserializeplayer(player))
-                    pcount += 1
-            self.menu.tournament_load(tournoi)
         plist = []
         for players in tournoi.tt_players:
             player = players.serialized_player()
@@ -282,7 +280,7 @@ class ControllerChess:
     def game(self):
         """ Run chess game"""
         tournoi = self.load_tt()
-        if len(tournoi.tt_players) == 0:
+        if len(tournoi.tt_players) < 8:
             self.menu.tt_add_player()
             self.add_players_in_tt(tournoi)
         else:

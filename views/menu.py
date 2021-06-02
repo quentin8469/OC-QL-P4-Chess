@@ -72,7 +72,7 @@ class Menu:
 
     def tt_add_player(self):
         """ get the tournament name"""
-        print("Please add player in your tournament")
+        print("Please add 8 players in your tournament")
 
     def round_view(self, rounds):
         """ view all rounds for a tournament"""

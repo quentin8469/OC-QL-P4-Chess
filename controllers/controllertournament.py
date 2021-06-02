@@ -50,6 +50,9 @@ class TournamentController:
         pl_list = []
         self.ttviews.new_tournament_timer()
         ttc = input()
+        ttc_check_list = ["Bullet", "Blitz", "Coup rapide"]
+        while ttc not in ttc_check_list:
+            ttc = input()
         self.ttviews.new_tournament_description()
         description = input()
         new_tournament = Tournament(

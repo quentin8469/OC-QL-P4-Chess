@@ -33,6 +33,7 @@ class TournamentViews:
         print("Bullet")
         print("Blitz")
         print("Coup rapide")
+        print("Enter your choice: ")
 
     def new_tournament_description(self):
         """ get the tournament location"""
